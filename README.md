@@ -1,5 +1,7 @@
 ## Prot-DNA Docking Benchmark
 
+![PROTDNABenchmark](docs/Protein-DNA-benchmark.png)
+
 
 ### Introduction
 
