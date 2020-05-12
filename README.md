@@ -71,5 +71,5 @@ Each directory contains the following files:
 * _profit.dat_ : Text file containing ProFit structure fitting data for automatic structure fitting using ProFit
 
 
-**Note** that the processed PDB files have been modified to avoid any overlap in residue numbering (e.g. shifting the numnber of the second DNA strand). Also the DNA nomenclature follows a three letter code (ADE, CYT, GUA, THY) compatible with [HADDOCK2.2](https://www.bonvinlab.org/software/haddock2.2).  For use in [HADDOCK2.4]((https://www.bonvinlab.org/software/haddock2.2)), the base names must be reverted to a single letter code (A,C,G,T).
+**Note** that the processed PDB files have been modified to avoid any overlap in residue numbering (e.g. shifting the numnber of the second DNA strand). Also the DNA nomenclature follows a three letter code (ADE, CYT, GUA, THY) compatible with [HADDOCK2.2](https://www.bonvinlab.org/software/haddock2.2).  For use in [HADDOCK2.4](https://www.bonvinlab.org/software/haddock2.2), the base names must be reverted to a single letter code (A,C,G,T).
 
