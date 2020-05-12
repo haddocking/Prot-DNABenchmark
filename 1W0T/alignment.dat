@@ -1,0 +1,1132 @@
+
+ *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** 
+
+ Version  - 071128/9.7.8
+ (c) 1992-2007 Gerard J. Kleywegt, Dept. Cell Mol. Biol., Uppsala (SE)
+ User I/O - routines courtesy of Rolf Boelens, Univ. of Utrecht (NL)
+ Others   - T.A. Jones, G. Bricogne, Rams, W.A. Hendrickson
+ Others   - W. Kabsch, CCP4, PROTEIN, E. Dodson, etc. etc.
+
+ Started  - Thu Dec 20 09:51:45 2007
+ User     - marcvandijk
+ Mode     - interactive
+ Host     - localhost (OSX/Apple)
+ ProcID   - 507
+ Not using a tty as input device
+
+ *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** 
+
+ Reference(s) for this program:
+
+ *  1 * G.J. Kleywegt & T.A. Jones (1994).  Halloween ... Masks and
+        Bones. In "From First Map to Final Model", edited by
+        S. Bailey, R. Hubbard and D. Waller.  SERC Daresbury
+        Laboratory, Warrington, pp. 59-66.
+        [http://xray.bmc.uu.se/gerard/papers/halloween.html]
+
+ *  2 * G.J. Kleywegt & T.A. Jones (1994). A super position.
+        CCP4/ESF-EACBM Newsletter on Protein Crystallography 31,
+        November 1994, pp. 9-14.
+        [http://xray.bmc.uu.se/usf/factory_4.html]
+
+ *  3 * G.J. Kleywegt & T.A. Jones (1995). Where freedom is given,
+        liberties are taken. Structure 3, 535-540.
+        [http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=PubMed&cmd=Retrieve&list_uids=8590014&dopt=Citation]
+
+ *  4 * G.J. Kleywegt (1996). Use of non-crystallographic symmetry
+        in protein structure refinement. Acta Cryst D52, 842-857.
+        [http://scripts.iucr.org/cgi-bin/paper?gr0471]
+
+ *  5 * G.J. Kleywegt (1996). Making the most of your search model.
+        CCP4/ESF-EACBM Newsletter on Protein Crystallography 32,
+        June 1996, pp. 32-36.
+        [http://xray.bmc.uu.se/usf/factory_6.html]
+
+ *  6 * G.J. Kleywegt & T.A. Jones (1996). Phi/Psi-chology:
+        Ramachandran revisited. Structure 4, 1395-1400.
+        [http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=PubMed&cmd=Retrieve&list_uids=8994966&dopt=Citation]
+
+ *  7 * G.J. Kleywegt & T.A. Jones (1997). Detecting folding motifs
+        and similarities in protein structures. Methods in
+        Enzymology 277, 525-545.
+
+ *  8 * T.A. Jones & G.J. Kleywegt (1999). CASP3 comparative
+        modelling evaluation.
+        Proteins: Struct. Funct. Genet. Suppl. 3, 30-46.
+        [http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=PubMed&cmd=Retrieve&list_uids=10526350&dopt=Citation]
+        [http://xray.bmc.uu.se/casp3]
+
+ *  9 * G.J. Kleywegt (1999). Experimental assessment of
+        differences between related protein crystal structures.
+        Acta Cryst. D55, 1878-1857.
+        [http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=PubMed&cmd=Retrieve&list_uids=10531486&dopt=Citation]
+        [http://scripts.iucr.org/cgi-bin/paper?se0283]
+
+ * 10 * Y.W. Chen, E.J. Dodson & G.J. Kleywegt (2000). Does NMR
+        mean "Not for Molecular Replacement" ? Using NMR-based
+        search models to solve protein crystal structures.
+        Structure 8, R213-R220.
+        [http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=PubMed&cmd=Retrieve&list_uids=11080645&dopt=Citation]
+
+ * 11 * D. Madsen & G.J. Kleywegt (2002). Interactive motif and
+        fold recognition in protein structures. J. Appl. Cryst.
+        35, 137-139.
+        [http://scripts.iucr.org/cgi-bin/paper?wt0007]
+
+ * 12 * M. Novotny, D. Madsen & G.J. Kleywegt (2004). An evaluation
+        of protein-fold-comparison servers. Proteins, 54, 260-270
+        (2004).
+        [http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=PubMed&cmd=Retrieve&list_uids=14696188&dopt=Citation]
+
+ * 13 * M.L. Sierk & G.J. Kleywegt (2004). Deja vu all over again:
+        finding and analyzing protein structure similarities.
+        Structure 12, 2103-2111.
+        [http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=PubMed&cmd=Retrieve&list_uids=15576025&dopt=Citation]
+
+ * 14 * Kleywegt, G.J., Zou, J.Y., Kjeldgaard, M. & Jones, T.A. (2001).
+        Around O. In: "International Tables for Crystallography, Vol. F.
+        Crystallography of Biological Macromolecules" (Rossmann, M.G.
+        & Arnold, E., Editors). Chapter 17.1, pp. 353-356, 366-367.
+        Dordrecht: Kluwer Academic Publishers, The Netherlands.
+
+ ==> For manuals and up-to-date references, visit:
+ ==>     http://xray.bmc.uu.se/usf
+ ==> For reprints, visit:
+ ==>     http://xray.bmc.uu.se/gerard
+ ==> For downloading up-to-date versions, visit:
+ ==>     ftp://xray.bmc.uu.se/pub/gerard
+
+ *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** 
+
+ Allocate buffer arrays of size  : (    1000000) 
+
+ Max nr of molecules             : (          8) 
+ Max nr of residues per molecule : (      30000) 
+ Max nr of atoms per molecule    : (     200000) 
+ Max nr of atom types            : (         15) 
+ Max nr of chains/models per mol : (         26) 
+
+ *** BLOSUM-45 substitution matrix loaded ***
+
+ Symbol START_TIME : (Thu Dec 20 09:51:45 2007) 
+ Symbol USERNAME : (marcvandijk) 
+
+ Initialising : (XVRML - 20051205/0.8) 
+ Nr of predefined colours : (        411) 
+
+
+ LSQMAN options :
+
+ ? (list options)                     ! (comment)
+ QUit                                 $ shell_command
+ & symbol value                       & ? (list symbols)
+ @ macro_file                         ECho on_off
+ # parameter(s) (command history)     
+
+ REad mol pdb_file [chain] [atom]     WRite mol pdb_file [chain] [first] [last]
+ DElete mol                           ANnotate mol comment_string
+ LIst [mol]                           CHain_mode mode
+ TYpe_residues mol                    BFactor_range b_lo b_hi
+ FRactionalise mol                    ORthogonalise mol
+ CEll mol a b c al be ga              SUbtract_ave_b mol
+ HYdrogens keep_or_strip              HEtatm keep_or_strip
+ NMr_model_mode all_or_first          AA_substitution_matrix filename
+
+ ALter CHain_id mol chain new_chain   ALter SEgid mol segid new_segid
+ ALter FOrce mol chain new_segid      ALter SAme mol chain
+ ALter REnumber mol chain [first]     
+
+ EXplicit mol1 range1 mol2 range2     NWunsch mol1 chain1 mol2 chain2 gap
+ BRute_force mol1 chain1 mol2 chain2 frag_length frag_step min_match [S|D] [slide_step]
+ FAst_force  mol1 chain1 mol2 chain2 frag_length frag_step min_match [S|D] [slide_step]
+ XAlignment mol1 chain1 mol2 chain2 pir_alignment_file
+
+ IMprove mol1 range1 mol2 range2      
+ DP_improve mol1 chain1 mol2 chain2 mode cut_off max_cycles [verbose]
+
+ GLobal_nw mol1 chain1 mol2 chain2 cut_off [log_file]
+
+ EDit_operator mol1 mol2 val1 ...     SHow_operator mol1 mol2
+ SAve_operator mol1 mol2 file [name]  PErturb_operator mol1 mol2 [amplitude]
+ APply_operator mol1 mol2_to_move [chain] [first] [last]
+ OLd_o_operator mol1 mol2 file        RMsd_calc mol1 range1 mol2 range2 [Ltarget]
+ WAters mol1 mol2 cut_off plot_file   HIsto_dist mol1 mol2 cut_off bin
+
+ MOrph mol1 range1 mol2 range2 nsteps basename type oid range3 cutoff
+ SImilarity_plot mol1 chain1 mol2 chain2 plot_file [start] [end] [step]
+ LEsk_plot mol1 chain1 mol2 chain2 plot_file
+ PHipsi_plot mol1 range1 mol2 range2 plot_file [cut-off] [hist_bin] [hist_max]
+ ETa_theta_plot mol1 range1 mol2 range2 plot_file [cut-off] [hist_bin] [hist_max]
+ DIstance_plot mol1 range1 mol2 range2 plot_file [cut-off] [hist_bin] [hist_max]
+ DDihe_plot mol1 range1 mol2 range2 plot_file [cut-off] [hist_bin] [hist_max]
+ D1_D2_plot mol1 range1 mol2 range2 plot_file [cut-off] [hist_bin] [hist_max]
+ QDiff_dist_plot mol1 range1 mol2 range2 2d_plot_file
+ DChi mol1 range1 mol2 range2 [cut-off] 
+ SOap_film mol1 chain1 mol2 chain2 odl_file [verbose]
+
+ MCentral mol residue_range exp_imp [rt_file]  
+ MAlign mol residue_range exp_imp chain
+ MDihedral mol chain plot_file [cut]  MRamachandran mol chain ps_file [cut] [how]
+ MSide_ch mol chain plot_file [cut]   MTorsion mol chain ps_file [cut] [how]
+ VMain_ch mol chain plot_file [cut]   VSide_ch mol chain plot_file [cut]
+ MPlot mol chain plot_file ps_file [dmax_black] [cut_dist_print]
+ MBfactors mol chain plot_file [cut]  
+
+ JUdge target tchn parent pchn model mchn dist phi chi 
+ CAsp target tchn model mchn [start] [end] [step]
+
+ GEt XYz mol chain x y z radius symbol_name [O_macro]
+
+ FIx_atom_names mol1 range1 mol2 range2 mode how what [min_gain] [cut_off]
+ NOmenclature mol                     INvert_ncs infile outfile
+ NUcleic_acid_pdb_nomenclature mol    
+
+ ATom_types ?                         ATom_types CA
+ ATom_types MAin_chain                ATom_types SIde_chain
+ ATom_types EXtended_main_chain       ATom_types ALl
+ ATom_types NOn_hydrogen              ATom_types DEfine type1 [type2 ...]
+ ATom_types PHosphorous               ATom_types TRace_and_side_chain
+ ATom_types C4*                       ATom_types NUcleic_acid_backbone
+
+ SEt ?                                SEt REset_defaults
+ SEt COarse_6A_fit_defaults           SEt INtermediate_4A_fit_defaults
+ SEt FIne_tune_3A_fit_defaults        SEt SImilar_mols_2A_fit_defaults
+
+ SEt MAx_nr_improve_cycles value      SEt DIst_max value
+ SEt MIn_fragment_length value        SEt DEcay value
+ SEt OPtimisation_criterion value     SEt SEquential_hits on_off
+ SEt RMs_weight value                 SEt FRagment_length_decay value
+ SEt SHift_correction on_off          SEt NUcleic_acid_defaults
+
+ OMacro INit mol1 file                OMacro APpend mol2
+ OMacro WRite o_command_string        OMacro CLose_file
+ OMacro DEfine central_atom max_dist connect_file
+
+ VRml SEtup central_atom max_dist backgr_col default_col
+ VRml INit [vrml_file]                VRml COlour_list
+ VRml ADd mol [chain] [colour]        VRml ALl_chains mol
+
+ Max nr of molecules             : (          8) 
+ Max nr of residues per molecule : (      30000) 
+ Max nr of atoms per molecule    : (     200000) 
+ Max nr of atom types            : (         15) 
+
+ LSQMAN >  Old chain |A| becomes chain A
+ Nr of lines read from file : (        458) 
+ Nr of atoms in molecule    : (        457) 
+ Nr of chains or models     : (          1) 
+ Stripped hydrogen atoms    : (          0) 
+ Nr of HETATMs              : (          0) 
+ Stripped alt. conf. atoms  : (          0) 
+ LSQMAN >  Old chain |A| becomes chain A
+ Nr of lines read from file : (        955) 
+ Nr of atoms in molecule    : (        492) 
+ Nr of chains or models     : (          1) 
+ Stripped hydrogen atoms    : (        462) 
+ Nr of HETATMs              : (          0) 
+ Stripped alt. conf. atoms  : (          0) 
+ LSQMAN >  Sequence-based Needleman-Wunsch alignment
+ Of              M1 A
+ And             M2 A
+ Atom type      | CA |
+ Gap penalty         5.00
+ Central atoms mol 1 : (         52) 
+ Central atoms mol 2 : (         53) 
+
+ Executing Needleman-Wunsch ...
+
+
+ Sequence 1 -KRQAWLWEEDKNLRSGVRKYGEGNWSKILLHYKFNNRTSVMLKDRWRTMKKL
+    |=ID     ||||||||||||||||||||||||||||||||||||||||||||||||||||
+ Sequence 2 RKRQAWLWEEDKNLRSGVRKYGEGNWSKILLHYKFNNRTSVMLKDRWRTMKKL
+
+ Gap penalty         : (   5.000) 
+ Raw alignment score : (  3.380E+02) 
+ Length sequence 1   : (      52) 
+ Length sequence 2   : (      53) 
+ Alignment length    : (      53) 
+ Nr of identities    : (      52) 
+ Perc identities     : ( 100.000) 
+ Nr of similarities  : (      52) 
+ Perc similarities   : ( 100.000) 
+ Nr of matched res   : (      52) 
+ RMSD (A) for those  : (   2.362) 
+ Operator stored     : (   0.015    0.722    0.692    0.122    0.686   -
+  0.718   -0.992    0.095   -0.078   22.389   24.520   11.690) 
+
+ The     52 atoms have an RMS distance of    2.362 A
+ SI = RMS * Nmin / Nmatch             =      2.36173
+ MI = (1+Nmatch)/{(1+W*RMS)*(1+Nmin)} =      0.29747
+ CR = Maiorov-Crippen RHO (0-2)       =      0.23611
+ Estimated RMSD for 2 random proteins =      9.250 A
+ RR = Relative RMSD                   =      0.25531
+ NR = Normalised RMSD (100)           =      3.509 A
+ RMSD / Nalign                        =    0.04542 A
+ SAS(1) = cRMS * (100/Nmatch)         =      4.542 A
+ SAS(2) = cRMS * (100/Nmatch)^2       =      8.734 A
+ SAS(3) = cRMS * (100/Nmatch)^3       =     16.797 A
+ SAS(4) = cRMS * (100/Nmatch)^4       =     32.301 A
+ LSQMAN >  Improve fit of  M1 A*
+ And             M2 A*
+ Atom type      | CA |
+ Nr of atoms in mol1 : (         52) 
+ Nr of atoms in mol2 : (         53) 
+
+ Found fragment of length : (      16) 
+ Found fragment of length : (      33) 
+
+ Cycle : (          1) 
+ Distance cut-off (A)      : (   3.500) 
+ Min fragment length (res) : (       3) 
+ The     49 atoms have an RMS distance of    1.327 A
+ SI = RMS * Nmin / Nmatch             =      1.40869
+ MI = (1+Nmatch)/{(1+W*RMS)*(1+Nmin)} =      0.40534
+ CR = Maiorov-Crippen RHO (0-2)       =      0.14010
+ Estimated RMSD for 2 random proteins =      8.580 A
+ RR = Relative RMSD                   =      0.15470
+ NR = Normalised RMSD (100)           =      2.063 A
+ RMSD / Nalign                        =    0.02709 A
+ SAS(1) = cRMS * (100/Nmatch)         =      2.709 A
+ SAS(2) = cRMS * (100/Nmatch)^2       =      5.529 A
+ SAS(3) = cRMS * (100/Nmatch)^3       =     11.283 A
+ SAS(4) = cRMS * (100/Nmatch)^4       =     23.026 A
+ RMS delta B for matched atoms        =    47.257 A2
+ Corr. coefficient matched atom Bs    =        0.000
+ Rotation     :   0.07478131  0.05790209 -0.99551761
+                  0.73123986  0.67558169  0.09422302
+                  0.67800903 -0.73500818  0.00818059
+ Translation  :      21.9459     24.5546     11.4514
+
+ Found fragment of length : (      49) 
+
+ Cycle : (          2) 
+ Distance cut-off (A)      : (   3.500) 
+ Min fragment length (res) : (       3) 
+ The     49 atoms have an RMS distance of    1.194 A
+ SI = RMS * Nmin / Nmatch             =      1.26682
+ MI = (1+Nmatch)/{(1+W*RMS)*(1+Nmin)} =      0.43004
+ CR = Maiorov-Crippen RHO (0-2)       =      0.12720
+ Estimated RMSD for 2 random proteins =      8.494 A
+ RR = Relative RMSD                   =      0.14054
+ NR = Normalised RMSD (100)           =      1.856 A
+ RMSD / Nalign                        =    0.02436 A
+ SAS(1) = cRMS * (100/Nmatch)         =      2.436 A
+ SAS(2) = cRMS * (100/Nmatch)^2       =      4.972 A
+ SAS(3) = cRMS * (100/Nmatch)^3       =     10.147 A
+ SAS(4) = cRMS * (100/Nmatch)^4       =     20.707 A
+ RMS delta B for matched atoms        =    46.895 A2
+ Corr. coefficient matched atom Bs    =        0.000
+ Rotation     :   0.09028253  0.03194300 -0.99540359
+                  0.72730738  0.68067116  0.08780945
+                  0.68034750 -0.73189217  0.03822035
+ Translation  :      21.8715     24.5337     11.3992
+
+ Found fragment of length : (      49) 
+
+ Cycle : (          3) 
+ Distance cut-off (A)      : (   3.500) 
+ Min fragment length (res) : (       3) 
+ The     49 atoms have an RMS distance of    1.194 A
+ SI = RMS * Nmin / Nmatch             =      1.26682
+ MI = (1+Nmatch)/{(1+W*RMS)*(1+Nmin)} =      0.43004
+ CR = Maiorov-Crippen RHO (0-2)       =      0.12720
+ Estimated RMSD for 2 random proteins =      8.494 A
+ RR = Relative RMSD                   =      0.14054
+ NR = Normalised RMSD (100)           =      1.856 A
+ RMSD / Nalign                        =    0.02436 A
+ SAS(1) = cRMS * (100/Nmatch)         =      2.436 A
+ SAS(2) = cRMS * (100/Nmatch)^2       =      4.972 A
+ SAS(3) = cRMS * (100/Nmatch)^3       =     10.147 A
+ SAS(4) = cRMS * (100/Nmatch)^4       =     20.707 A
+ RMS delta B for matched atoms        =    46.895 A2
+ Corr. coefficient matched atom Bs    =        0.000
+ Rotation     :   0.09028253  0.03194300 -0.99540359
+                  0.72730738  0.68067116  0.08780945
+                  0.68034750 -0.73189217  0.03822035
+ Translation  :      21.8715     24.5337     11.3992
+
+ Fit did not improve in this cycle !
+ Alignment based on previous operator !
+
+ Fragment ALA-A   4 <===> ALA-A   5 @     2.03 A *
+          TRP-A   5 <===> TRP-A   6 @     1.20 A *
+          LEU-A   6 <===> LEU-A   7 @     1.27 A *
+          TRP-A   7 <===> TRP-A   8 @     1.63 A *
+          GLU-A   8 <===> GLU-A   9 @     1.14 A *
+          GLU-A   9 <===> GLU-A  10 @     0.79 A *
+          ASP-A  10 <===> ASP-A  11 @     0.92 A *
+          LYS-A  11 <===> LYS-A  12 @     0.41 A *
+          ASN-A  12 <===> ASN-A  13 @     0.33 A *
+          LEU-A  13 <===> LEU-A  14 @     0.41 A *
+          ARG-A  14 <===> ARG-A  15 @     1.13 A *
+          SER-A  15 <===> SER-A  16 @     1.39 A *
+          GLY-A  16 <===> GLY-A  17 @     0.93 A *
+          VAL-A  17 <===> VAL-A  18 @     1.18 A *
+          ARG-A  18 <===> ARG-A  19 @     2.79 A *
+          LYS-A  19 <===> LYS-A  20 @     2.93 A *
+          TYR-A  20 <===> TYR-A  21 @     1.12 A *
+          GLY-A  21 <===> GLY-A  22 @     1.27 A *
+          GLU-A  22 <===> GLU-A  23 @     1.26 A *
+          GLY-A  23 <===> GLY-A  24 @     1.21 A *
+          ASN-A  24 <===> ASN-A  25 @     0.98 A *
+          TRP-A  25 <===> TRP-A  26 @     1.17 A *
+          SER-A  26 <===> SER-A  27 @     1.34 A *
+          LYS-A  27 <===> LYS-A  28 @     1.11 A *
+          ILE-A  28 <===> ILE-A  29 @     0.74 A *
+          LEU-A  29 <===> LEU-A  30 @     1.24 A *
+          LEU-A  30 <===> LEU-A  31 @     1.16 A *
+          HIS-A  31 <===> HIS-A  32 @     0.85 A *
+          TYR-A  32 <===> TYR-A  33 @     0.11 A *
+          LYS-A  33 <===> LYS-A  34 @     1.03 A *
+          PHE-A  34 <===> PHE-A  35 @     0.72 A *
+          ASN-A  35 <===> ASN-A  36 @     0.74 A *
+          ASN-A  36 <===> ASN-A  37 @     1.80 A *
+          ARG-A  37 <===> ARG-A  38 @     1.17 A *
+          THR-A  38 <===> THR-A  39 @     1.14 A *
+          SER-A  39 <===> SER-A  40 @     1.19 A *
+          VAL-A  40 <===> VAL-A  41 @     1.03 A *
+          MET-A  41 <===> MET-A  42 @     0.47 A *
+          LEU-A  42 <===> LEU-A  43 @     0.35 A *
+          LYS-A  43 <===> LYS-A  44 @     0.39 A *
+          ASP-A  44 <===> ASP-A  45 @     0.57 A *
+          ARG-A  45 <===> ARG-A  46 @     0.51 A *
+          TRP-A  46 <===> TRP-A  47 @     0.30 A *
+          ARG-A  47 <===> ARG-A  48 @     1.06 A *
+          THR-A  48 <===> THR-A  49 @     0.79 A *
+          MET-A  49 <===> MET-A  50 @     0.32 A *
+          LYS-A  50 <===> LYS-A  51 @     1.14 A *
+          LYS-A  51 <===> LYS-A  52 @     2.01 A *
+          LEU-A  52 <===> LEU-A  53 @     0.80 A *
+
+ Nr of residues in mol1   : (      52) 
+ Nr of residues in mol2   : (      53) 
+ Nr of matched residues   : (      49) 
+ Nr of identical residues : (      49) 
+ % identical of matched   : ( 100.000) 
+ % matched   of mol1      : (  94.231) 
+ % identical of mol1      : (  94.231) 
+ D-value    for mol1      : (   0.888) 
+ % matched   of mol2      : (  92.453) 
+ % identical of mol2      : (  92.453) 
+ D-value    for mol2      : (   0.855) 
+
+ Analysis of distance distribution:
+ Number of distances                    :         49
+ Average (A)                            :       1.05
+ Standard deviation (A)                 :       0.56
+ Variance (A**2)                        :       0.32
+ Minimum (A)                            :       0.11
+ Maximum (A)                            :       2.93
+ Range (A)                              :       2.81
+ Sum (A)                                :      51.58
+ Root-mean-square (A)                   :       1.19
+ Harmonic average (A)                   :       0.72
+ Median (A)                             :       1.06
+ 25th Percentile (A)                    :       0.73
+ 75th Percentile (A)                    :       1.21
+ Semi-interquartile range (A)           :       0.48
+ Trimean (A)                            :       1.01
+ 50% Trimmed mean (A)                   :       1.02
+ 10th Percentile (A)                    :       0.34
+ 90th Percentile (A)                    :       1.72
+ 20% Trimmed mean (A)                   :       0.97
+
+ LSQMAN >  Global-superposition-distance-based Needleman-Wunsch alignment
+ Of                   M1 A
+ And                  M2 A
+ Atom type           | CA |
+ Cut-off distance         5.00
+ Log file (optional)   
+
+ Central atoms mol 1 : (         52) 
+ Central atoms mol 2 : (         53) 
+
+ Applying current operator to mol 2 : (   0.090    0.727    0.680    0.032 
+     0.681   -0.732   -0.995    0.088    0.038   21.872   24.534   11.399) 
+
+ Calculating superposition-distance matrix ...
+
+ Executing Needleman-Wunsch ...
+
+      1    -    -   R  [A   1] ... DIST =        -  
+      2    -    -   K  [A   2] ... DIST =        -  
+      3    -    -   R  [A   3] ... DIST =        -  
+      4    -    -   Q  [A   4] ... DIST =        -  
+      5 [A   1] K   -     -    ... DIST =        -  
+      6 [A   2] R   -     -    ... DIST =        -  
+      7 [A   3] Q   -     -    ... DIST =        -  
+      8 [A   4] A | A  [A   5] ... DIST =     2.03 A
+      9 [A   5] W | W  [A   6] ... DIST =     1.20 A
+     10 [A   6] L | L  [A   7] ... DIST =     1.27 A
+     11 [A   7] W | W  [A   8] ... DIST =     1.63 A
+     12 [A   8] E | E  [A   9] ... DIST =     1.14 A
+     13 [A   9] E | E  [A  10] ... DIST =     0.79 A
+     14 [A  10] D | D  [A  11] ... DIST =     0.92 A
+     15 [A  11] K | K  [A  12] ... DIST =     0.41 A
+     16 [A  12] N | N  [A  13] ... DIST =     0.33 A
+     17 [A  13] L | L  [A  14] ... DIST =     0.41 A
+     18 [A  14] R | R  [A  15] ... DIST =     1.13 A
+     19 [A  15] S | S  [A  16] ... DIST =     1.39 A
+     20 [A  16] G | G  [A  17] ... DIST =     0.93 A
+     21 [A  17] V | V  [A  18] ... DIST =     1.18 A
+     22 [A  18] R | R  [A  19] ... DIST =     2.79 A
+     23 [A  19] K | K  [A  20] ... DIST =     2.93 A
+     24 [A  20] Y | Y  [A  21] ... DIST =     1.12 A
+     25 [A  21] G | G  [A  22] ... DIST =     1.27 A
+     26 [A  22] E | E  [A  23] ... DIST =     1.26 A
+     27 [A  23] G | G  [A  24] ... DIST =     1.21 A
+     28 [A  24] N | N  [A  25] ... DIST =     0.98 A
+     29 [A  25] W | W  [A  26] ... DIST =     1.17 A
+     30 [A  26] S | S  [A  27] ... DIST =     1.34 A
+     31 [A  27] K | K  [A  28] ... DIST =     1.11 A
+     32 [A  28] I | I  [A  29] ... DIST =     0.74 A
+     33 [A  29] L | L  [A  30] ... DIST =     1.24 A
+     34 [A  30] L | L  [A  31] ... DIST =     1.16 A
+     35 [A  31] H | H  [A  32] ... DIST =     0.85 A
+     36 [A  32] Y | Y  [A  33] ... DIST =     0.11 A
+     37 [A  33] K | K  [A  34] ... DIST =     1.03 A
+     38 [A  34] F | F  [A  35] ... DIST =     0.72 A
+     39 [A  35] N | N  [A  36] ... DIST =     0.74 A
+     40 [A  36] N | N  [A  37] ... DIST =     1.80 A
+     41 [A  37] R | R  [A  38] ... DIST =     1.17 A
+     42 [A  38] T | T  [A  39] ... DIST =     1.14 A
+     43 [A  39] S | S  [A  40] ... DIST =     1.19 A
+     44 [A  40] V | V  [A  41] ... DIST =     1.03 A
+     45 [A  41] M | M  [A  42] ... DIST =     0.47 A
+     46 [A  42] L | L  [A  43] ... DIST =     0.35 A
+     47 [A  43] K | K  [A  44] ... DIST =     0.39 A
+     48 [A  44] D | D  [A  45] ... DIST =     0.57 A
+     49 [A  45] R | R  [A  46] ... DIST =     0.51 A
+     50 [A  46] W | W  [A  47] ... DIST =     0.30 A
+     51 [A  47] R | R  [A  48] ... DIST =     1.06 A
+     52 [A  48] T | T  [A  49] ... DIST =     0.79 A
+     53 [A  49] M | M  [A  50] ... DIST =     0.32 A
+     54 [A  50] K | K  [A  51] ... DIST =     1.14 A
+     55 [A  51] K | K  [A  52] ... DIST =     2.01 A
+     56 [A  52] L | L  [A  53] ... DIST =     0.80 A
+
+ Sequence 1 ----KRQAWLWEEDKNLRSGVRKYGEGNWSKILLHYKFNNRTSVMLKDRWRTMKKL
+ .=ALI |=ID        |||||||||||||||||||||||||||||||||||||||||||||||||
+ Sequence 2 RKRQ---AWLWEEDKNLRSGVRKYGEGNWSKILLHYKFNNRTSVMLKDRWRTMKKL
+
+ Analysis of distance distribution:
+ Number of distances                    :         49
+ Average (A)                            :       1.05
+ Standard deviation (A)                 :       0.56
+ Variance (A**2)                        :       0.32
+ Minimum (A)                            :       0.11
+ Maximum (A)                            :       2.93
+ Range (A)                              :       2.81
+ Sum (A)                                :      51.58
+ Root-mean-square (A)                   :       1.19
+ Harmonic average (A)                   :       0.72
+ Median (A)                             :       1.06
+ 25th Percentile (A)                    :       0.73
+ 75th Percentile (A)                    :       1.21
+ Semi-interquartile range (A)           :       0.48
+ Trimean (A)                            :       1.01
+ 50% Trimmed mean (A)                   :       1.02
+ 10th Percentile (A)                    :       0.34
+ 90th Percentile (A)                    :       1.72
+ 20% Trimmed mean (A)                   :       0.97
+
+ Gap penalty            :       12.500
+ Raw alignment score    :  -1.5732E+02
+ L1 = Length sequence 1 :           52
+ L2 = Length sequence 2 :           53
+ Alignment length       :           56
+ NI = Nr of identities  :           49
+ L3 = Nr of matched res :           49
+ RMSD for those (A)     :        1.194
+ (Note: RMSD calculated after superimposing matched
+  residues; corresponding RT operator not stored)
+ ID = NI/min(L1,L2) (%) :        94.23
+ ID = NI/L3 (%)         :       100.00
+
+ Levitt-Gerstein statistics:
+ Nr of gaps       :            0
+ Similarity score :   9.3029E+02
+ Z-score          :   1.4556E+01
+ P (z > Z)        :   4.7665E-07
+ P (z > Z) is the probability of matching any two
+ random structures and finding a Z-score z which
+ is greater than the Z-score Z of the current pair.
+
+ TM-score statistics:
+ Ltarget          :           52
+ d0 (Ltarget) (A) :        2.327
+ TM-score         :        0.775
+
+ LSQMAN > STOP ... Toodle pip ... statement executed
+
+
+ *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** 
+
+ Version - 071128/9.7.8
+ Started - Thu Dec 20 09:51:45 2007
+ Stopped - Thu Dec 20 09:51:45 2007
+
+ CPU-time taken :
+ User    -      0.2 Sys    -      0.0 Total   -      0.2
+
+ *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** 
+
+ >>>>>>>>>>>>>> USF .... Uppsala Software Factory <<<<<<<<<<<<<<
+ >>>>>>>>>> This program: (c) 1992-2007, G J Kleywegt <<<<<<<<<<
+ >>>>>>>>>>>>>>>> E-mail: gerard@xray.bmc.uu.se <<<<<<<<<<<<<<<<
+ >>>>>>>>>>>>>>>>>> http://xray.bmc.uu.se/usf <<<<<<<<<<<<<<<<<<
+
+ *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** 
+
+
+ *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** 
+
+ Version  - 071128/9.7.8
+ (c) 1992-2007 Gerard J. Kleywegt, Dept. Cell Mol. Biol., Uppsala (SE)
+ User I/O - routines courtesy of Rolf Boelens, Univ. of Utrecht (NL)
+ Others   - T.A. Jones, G. Bricogne, Rams, W.A. Hendrickson
+ Others   - W. Kabsch, CCP4, PROTEIN, E. Dodson, etc. etc.
+
+ Started  - Thu Dec 20 09:51:46 2007
+ User     - marcvandijk
+ Mode     - interactive
+ Host     - localhost (OSX/Apple)
+ ProcID   - 510
+ Not using a tty as input device
+
+ *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** 
+
+ Reference(s) for this program:
+
+ *  1 * G.J. Kleywegt & T.A. Jones (1994).  Halloween ... Masks and
+        Bones. In "From First Map to Final Model", edited by
+        S. Bailey, R. Hubbard and D. Waller.  SERC Daresbury
+        Laboratory, Warrington, pp. 59-66.
+        [http://xray.bmc.uu.se/gerard/papers/halloween.html]
+
+ *  2 * G.J. Kleywegt & T.A. Jones (1994). A super position.
+        CCP4/ESF-EACBM Newsletter on Protein Crystallography 31,
+        November 1994, pp. 9-14.
+        [http://xray.bmc.uu.se/usf/factory_4.html]
+
+ *  3 * G.J. Kleywegt & T.A. Jones (1995). Where freedom is given,
+        liberties are taken. Structure 3, 535-540.
+        [http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=PubMed&cmd=Retrieve&list_uids=8590014&dopt=Citation]
+
+ *  4 * G.J. Kleywegt (1996). Use of non-crystallographic symmetry
+        in protein structure refinement. Acta Cryst D52, 842-857.
+        [http://scripts.iucr.org/cgi-bin/paper?gr0471]
+
+ *  5 * G.J. Kleywegt (1996). Making the most of your search model.
+        CCP4/ESF-EACBM Newsletter on Protein Crystallography 32,
+        June 1996, pp. 32-36.
+        [http://xray.bmc.uu.se/usf/factory_6.html]
+
+ *  6 * G.J. Kleywegt & T.A. Jones (1996). Phi/Psi-chology:
+        Ramachandran revisited. Structure 4, 1395-1400.
+        [http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=PubMed&cmd=Retrieve&list_uids=8994966&dopt=Citation]
+
+ *  7 * G.J. Kleywegt & T.A. Jones (1997). Detecting folding motifs
+        and similarities in protein structures. Methods in
+        Enzymology 277, 525-545.
+
+ *  8 * T.A. Jones & G.J. Kleywegt (1999). CASP3 comparative
+        modelling evaluation.
+        Proteins: Struct. Funct. Genet. Suppl. 3, 30-46.
+        [http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=PubMed&cmd=Retrieve&list_uids=10526350&dopt=Citation]
+        [http://xray.bmc.uu.se/casp3]
+
+ *  9 * G.J. Kleywegt (1999). Experimental assessment of
+        differences between related protein crystal structures.
+        Acta Cryst. D55, 1878-1857.
+        [http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=PubMed&cmd=Retrieve&list_uids=10531486&dopt=Citation]
+        [http://scripts.iucr.org/cgi-bin/paper?se0283]
+
+ * 10 * Y.W. Chen, E.J. Dodson & G.J. Kleywegt (2000). Does NMR
+        mean "Not for Molecular Replacement" ? Using NMR-based
+        search models to solve protein crystal structures.
+        Structure 8, R213-R220.
+        [http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=PubMed&cmd=Retrieve&list_uids=11080645&dopt=Citation]
+
+ * 11 * D. Madsen & G.J. Kleywegt (2002). Interactive motif and
+        fold recognition in protein structures. J. Appl. Cryst.
+        35, 137-139.
+        [http://scripts.iucr.org/cgi-bin/paper?wt0007]
+
+ * 12 * M. Novotny, D. Madsen & G.J. Kleywegt (2004). An evaluation
+        of protein-fold-comparison servers. Proteins, 54, 260-270
+        (2004).
+        [http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=PubMed&cmd=Retrieve&list_uids=14696188&dopt=Citation]
+
+ * 13 * M.L. Sierk & G.J. Kleywegt (2004). Deja vu all over again:
+        finding and analyzing protein structure similarities.
+        Structure 12, 2103-2111.
+        [http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=PubMed&cmd=Retrieve&list_uids=15576025&dopt=Citation]
+
+ * 14 * Kleywegt, G.J., Zou, J.Y., Kjeldgaard, M. & Jones, T.A. (2001).
+        Around O. In: "International Tables for Crystallography, Vol. F.
+        Crystallography of Biological Macromolecules" (Rossmann, M.G.
+        & Arnold, E., Editors). Chapter 17.1, pp. 353-356, 366-367.
+        Dordrecht: Kluwer Academic Publishers, The Netherlands.
+
+ ==> For manuals and up-to-date references, visit:
+ ==>     http://xray.bmc.uu.se/usf
+ ==> For reprints, visit:
+ ==>     http://xray.bmc.uu.se/gerard
+ ==> For downloading up-to-date versions, visit:
+ ==>     ftp://xray.bmc.uu.se/pub/gerard
+
+ *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** 
+
+ Allocate buffer arrays of size  : (    1000000) 
+
+ Max nr of molecules             : (          8) 
+ Max nr of residues per molecule : (      30000) 
+ Max nr of atoms per molecule    : (     200000) 
+ Max nr of atom types            : (         15) 
+ Max nr of chains/models per mol : (         26) 
+
+ *** BLOSUM-45 substitution matrix loaded ***
+
+ Symbol START_TIME : (Thu Dec 20 09:51:46 2007) 
+ Symbol USERNAME : (marcvandijk) 
+
+ Initialising : (XVRML - 20051205/0.8) 
+ Nr of predefined colours : (        411) 
+
+
+ LSQMAN options :
+
+ ? (list options)                     ! (comment)
+ QUit                                 $ shell_command
+ & symbol value                       & ? (list symbols)
+ @ macro_file                         ECho on_off
+ # parameter(s) (command history)     
+
+ REad mol pdb_file [chain] [atom]     WRite mol pdb_file [chain] [first] [last]
+ DElete mol                           ANnotate mol comment_string
+ LIst [mol]                           CHain_mode mode
+ TYpe_residues mol                    BFactor_range b_lo b_hi
+ FRactionalise mol                    ORthogonalise mol
+ CEll mol a b c al be ga              SUbtract_ave_b mol
+ HYdrogens keep_or_strip              HEtatm keep_or_strip
+ NMr_model_mode all_or_first          AA_substitution_matrix filename
+
+ ALter CHain_id mol chain new_chain   ALter SEgid mol segid new_segid
+ ALter FOrce mol chain new_segid      ALter SAme mol chain
+ ALter REnumber mol chain [first]     
+
+ EXplicit mol1 range1 mol2 range2     NWunsch mol1 chain1 mol2 chain2 gap
+ BRute_force mol1 chain1 mol2 chain2 frag_length frag_step min_match [S|D] [slide_step]
+ FAst_force  mol1 chain1 mol2 chain2 frag_length frag_step min_match [S|D] [slide_step]
+ XAlignment mol1 chain1 mol2 chain2 pir_alignment_file
+
+ IMprove mol1 range1 mol2 range2      
+ DP_improve mol1 chain1 mol2 chain2 mode cut_off max_cycles [verbose]
+
+ GLobal_nw mol1 chain1 mol2 chain2 cut_off [log_file]
+
+ EDit_operator mol1 mol2 val1 ...     SHow_operator mol1 mol2
+ SAve_operator mol1 mol2 file [name]  PErturb_operator mol1 mol2 [amplitude]
+ APply_operator mol1 mol2_to_move [chain] [first] [last]
+ OLd_o_operator mol1 mol2 file        RMsd_calc mol1 range1 mol2 range2 [Ltarget]
+ WAters mol1 mol2 cut_off plot_file   HIsto_dist mol1 mol2 cut_off bin
+
+ MOrph mol1 range1 mol2 range2 nsteps basename type oid range3 cutoff
+ SImilarity_plot mol1 chain1 mol2 chain2 plot_file [start] [end] [step]
+ LEsk_plot mol1 chain1 mol2 chain2 plot_file
+ PHipsi_plot mol1 range1 mol2 range2 plot_file [cut-off] [hist_bin] [hist_max]
+ ETa_theta_plot mol1 range1 mol2 range2 plot_file [cut-off] [hist_bin] [hist_max]
+ DIstance_plot mol1 range1 mol2 range2 plot_file [cut-off] [hist_bin] [hist_max]
+ DDihe_plot mol1 range1 mol2 range2 plot_file [cut-off] [hist_bin] [hist_max]
+ D1_D2_plot mol1 range1 mol2 range2 plot_file [cut-off] [hist_bin] [hist_max]
+ QDiff_dist_plot mol1 range1 mol2 range2 2d_plot_file
+ DChi mol1 range1 mol2 range2 [cut-off] 
+ SOap_film mol1 chain1 mol2 chain2 odl_file [verbose]
+
+ MCentral mol residue_range exp_imp [rt_file]  
+ MAlign mol residue_range exp_imp chain
+ MDihedral mol chain plot_file [cut]  MRamachandran mol chain ps_file [cut] [how]
+ MSide_ch mol chain plot_file [cut]   MTorsion mol chain ps_file [cut] [how]
+ VMain_ch mol chain plot_file [cut]   VSide_ch mol chain plot_file [cut]
+ MPlot mol chain plot_file ps_file [dmax_black] [cut_dist_print]
+ MBfactors mol chain plot_file [cut]  
+
+ JUdge target tchn parent pchn model mchn dist phi chi 
+ CAsp target tchn model mchn [start] [end] [step]
+
+ GEt XYz mol chain x y z radius symbol_name [O_macro]
+
+ FIx_atom_names mol1 range1 mol2 range2 mode how what [min_gain] [cut_off]
+ NOmenclature mol                     INvert_ncs infile outfile
+ NUcleic_acid_pdb_nomenclature mol    
+
+ ATom_types ?                         ATom_types CA
+ ATom_types MAin_chain                ATom_types SIde_chain
+ ATom_types EXtended_main_chain       ATom_types ALl
+ ATom_types NOn_hydrogen              ATom_types DEfine type1 [type2 ...]
+ ATom_types PHosphorous               ATom_types TRace_and_side_chain
+ ATom_types C4*                       ATom_types NUcleic_acid_backbone
+
+ SEt ?                                SEt REset_defaults
+ SEt COarse_6A_fit_defaults           SEt INtermediate_4A_fit_defaults
+ SEt FIne_tune_3A_fit_defaults        SEt SImilar_mols_2A_fit_defaults
+
+ SEt MAx_nr_improve_cycles value      SEt DIst_max value
+ SEt MIn_fragment_length value        SEt DEcay value
+ SEt OPtimisation_criterion value     SEt SEquential_hits on_off
+ SEt RMs_weight value                 SEt FRagment_length_decay value
+ SEt SHift_correction on_off          SEt NUcleic_acid_defaults
+
+ OMacro INit mol1 file                OMacro APpend mol2
+ OMacro WRite o_command_string        OMacro CLose_file
+ OMacro DEfine central_atom max_dist connect_file
+
+ VRml SEtup central_atom max_dist backgr_col default_col
+ VRml INit [vrml_file]                VRml COlour_list
+ VRml ADd mol [chain] [colour]        VRml ALl_chains mol
+
+ Max nr of molecules             : (          8) 
+ Max nr of residues per molecule : (      30000) 
+ Max nr of atoms per molecule    : (     200000) 
+ Max nr of atom types            : (         15) 
+
+ LSQMAN >  Old chain |B| becomes chain A
+ Nr of lines read from file : (        458) 
+ Nr of atoms in molecule    : (        457) 
+ Nr of chains or models     : (          1) 
+ Stripped hydrogen atoms    : (          0) 
+ Nr of HETATMs              : (          0) 
+ Stripped alt. conf. atoms  : (          0) 
+ LSQMAN >  Old chain |B| becomes chain A
+ Nr of lines read from file : (        955) 
+ Nr of atoms in molecule    : (        492) 
+ Nr of chains or models     : (          1) 
+ Stripped hydrogen atoms    : (        462) 
+ Nr of HETATMs              : (          0) 
+ Stripped alt. conf. atoms  : (          0) 
+ LSQMAN >  Sequence-based Needleman-Wunsch alignment
+ Of              M1 A
+ And             M2 A
+ Atom type      | CA |
+ Gap penalty         5.00
+ Central atoms mol 1 : (         52) 
+ Central atoms mol 2 : (         53) 
+
+ Executing Needleman-Wunsch ...
+
+
+ Sequence 1 -KRQAWLWEEDKNLRSGVRKYGEGNWSKILLHYKFNNRTSVMLKDRWRTMKKL
+    |=ID     ||||||||||||||||||||||||||||||||||||||||||||||||||||
+ Sequence 2 RKRQAWLWEEDKNLRSGVRKYGEGNWSKILLHYKFNNRTSVMLKDRWRTMKKL
+
+ Gap penalty         : (   5.000) 
+ Raw alignment score : (  3.380E+02) 
+ Length sequence 1   : (      52) 
+ Length sequence 2   : (      53) 
+ Alignment length    : (      53) 
+ Nr of identities    : (      52) 
+ Perc identities     : ( 100.000) 
+ Nr of similarities  : (      52) 
+ Perc similarities   : ( 100.000) 
+ Nr of matched res   : (      52) 
+ RMSD (A) for those  : (   2.578) 
+ Operator stored     : (   0.657   -0.402    0.638    0.081   -0.803   -
+  0.590    0.749    0.439   -0.496   33.729   53.139   26.885) 
+
+ The     52 atoms have an RMS distance of    2.578 A
+ SI = RMS * Nmin / Nmatch             =      2.57847
+ MI = (1+Nmatch)/{(1+W*RMS)*(1+Nmin)} =      0.27945
+ CR = Maiorov-Crippen RHO (0-2)       =      0.26333
+ Estimated RMSD for 2 random proteins =      9.066 A
+ RR = Relative RMSD                   =      0.28442
+ NR = Normalised RMSD (100)           =      3.831 A
+ RMSD / Nalign                        =    0.04959 A
+ SAS(1) = cRMS * (100/Nmatch)         =      4.959 A
+ SAS(2) = cRMS * (100/Nmatch)^2       =      9.536 A
+ SAS(3) = cRMS * (100/Nmatch)^3       =     18.338 A
+ SAS(4) = cRMS * (100/Nmatch)^4       =     35.265 A
+ LSQMAN >  Improve fit of  M1 A*
+ And             M2 A*
+ Atom type      | CA |
+ Nr of atoms in mol1 : (         52) 
+ Nr of atoms in mol2 : (         53) 
+
+ Found fragment of length : (      47) 
+
+ Cycle : (          1) 
+ Distance cut-off (A)      : (   3.500) 
+ Min fragment length (res) : (       3) 
+ The     47 atoms have an RMS distance of    1.401 A
+ SI = RMS * Nmin / Nmatch             =      1.55029
+ MI = (1+Nmatch)/{(1+W*RMS)*(1+Nmin)} =      0.37717
+ CR = Maiorov-Crippen RHO (0-2)       =      0.15418
+ Estimated RMSD for 2 random proteins =      8.137 A
+ RR = Relative RMSD                   =      0.17220
+ NR = Normalised RMSD (100)           =      2.251 A
+ RMSD / Nalign                        =    0.02981 A
+ SAS(1) = cRMS * (100/Nmatch)         =      2.981 A
+ SAS(2) = cRMS * (100/Nmatch)^2       =      6.343 A
+ SAS(3) = cRMS * (100/Nmatch)^3       =     13.496 A
+ SAS(4) = cRMS * (100/Nmatch)^4       =     28.715 A
+ RMS delta B for matched atoms        =    32.164 A2
+ Corr. coefficient matched atom Bs    =        0.000
+ Rotation     :   0.61828005 -0.00063363  0.78595740
+                 -0.48496237 -0.78724390  0.38086513
+                  0.61849892 -0.61664116 -0.48704457
+ Translation  :      33.6921     53.7071     27.0930
+
+ Found fragment of length : (      49) 
+
+ Cycle : (          2) 
+ Distance cut-off (A)      : (   3.500) 
+ Min fragment length (res) : (       3) 
+ The     49 atoms have an RMS distance of    1.488 A
+ SI = RMS * Nmin / Nmatch             =      1.57950
+ MI = (1+Nmatch)/{(1+W*RMS)*(1+Nmin)} =      0.37912
+ CR = Maiorov-Crippen RHO (0-2)       =      0.15810
+ Estimated RMSD for 2 random proteins =      8.530 A
+ RR = Relative RMSD                   =      0.17448
+ NR = Normalised RMSD (100)           =      2.314 A
+ RMSD / Nalign                        =    0.03038 A
+ SAS(1) = cRMS * (100/Nmatch)         =      3.038 A
+ SAS(2) = cRMS * (100/Nmatch)^2       =      6.199 A
+ SAS(3) = cRMS * (100/Nmatch)^3       =     12.651 A
+ SAS(4) = cRMS * (100/Nmatch)^4       =     25.818 A
+ RMS delta B for matched atoms        =    32.693 A2
+ Corr. coefficient matched atom Bs    =        0.000
+ Rotation     :   0.62960809 -0.02487101  0.77651483
+                 -0.49066427 -0.78766203  0.37260878
+                  0.60236400 -0.61560553 -0.50812167
+ Translation  :      33.5389     53.6926     27.0584
+
+ Fit did not improve in this cycle !
+ Alignment based on previous operator !
+
+ Fragment ALA-A   4 <===> ALA-A   5 @     3.31 A *
+          TRP-A   5 <===> TRP-A   6 @     1.47 A *
+          LEU-A   6 <===> LEU-A   7 @     1.36 A *
+          TRP-A   7 <===> TRP-A   8 @     0.88 A *
+          GLU-A   8 <===> GLU-A   9 @     0.48 A *
+          GLU-A   9 <===> GLU-A  10 @     0.40 A *
+          ASP-A  10 <===> ASP-A  11 @     0.56 A *
+          LYS-A  11 <===> LYS-A  12 @     0.72 A *
+          ASN-A  12 <===> ASN-A  13 @     0.73 A *
+          LEU-A  13 <===> LEU-A  14 @     0.69 A *
+          ARG-A  14 <===> ARG-A  15 @     1.48 A *
+          SER-A  15 <===> SER-A  16 @     1.94 A *
+          GLY-A  16 <===> GLY-A  17 @     1.30 A *
+          VAL-A  17 <===> VAL-A  18 @     1.16 A *
+          ARG-A  18 <===> ARG-A  19 @     2.31 A *
+          LYS-A  19 <===> LYS-A  20 @     1.81 A *
+          TYR-A  20 <===> TYR-A  21 @     0.58 A *
+          GLY-A  21 <===> GLY-A  22 @     0.99 A *
+          GLU-A  22 <===> GLU-A  23 @     1.41 A *
+          GLY-A  23 <===> GLY-A  24 @     1.93 A *
+          ASN-A  24 <===> ASN-A  25 @     1.64 A *
+          TRP-A  25 <===> TRP-A  26 @     1.31 A *
+          SER-A  26 <===> SER-A  27 @     1.50 A *
+          LYS-A  27 <===> LYS-A  28 @     1.22 A *
+          ILE-A  28 <===> ILE-A  29 @     1.18 A *
+          LEU-A  29 <===> LEU-A  30 @     1.32 A *
+          LEU-A  30 <===> LEU-A  31 @     1.23 A *
+          HIS-A  31 <===> HIS-A  32 @     0.99 A *
+          TYR-A  32 <===> TYR-A  33 @     0.75 A *
+          LYS-A  33 <===> LYS-A  34 @     1.04 A *
+          PHE-A  34 <===> PHE-A  35 @     1.41 A *
+          ASN-A  35 <===> ASN-A  36 @     2.05 A *
+          ASN-A  36 <===> ASN-A  37 @     1.68 A *
+          ARG-A  37 <===> ARG-A  38 @     1.27 A *
+          THR-A  38 <===> THR-A  39 @     1.76 A *
+          SER-A  39 <===> SER-A  40 @     1.52 A *
+          VAL-A  40 <===> VAL-A  41 @     1.60 A *
+          MET-A  41 <===> MET-A  42 @     1.28 A *
+          LEU-A  42 <===> LEU-A  43 @     0.80 A *
+          LYS-A  43 <===> LYS-A  44 @     0.71 A *
+          ASP-A  44 <===> ASP-A  45 @     1.12 A *
+          ARG-A  45 <===> ARG-A  46 @     0.79 A *
+          TRP-A  46 <===> TRP-A  47 @     0.47 A *
+          ARG-A  47 <===> ARG-A  48 @     1.10 A *
+          THR-A  48 <===> THR-A  49 @     1.68 A *
+          MET-A  49 <===> MET-A  50 @     1.40 A *
+          LYS-A  50 <===> LYS-A  51 @     2.20 A *
+
+ Nr of residues in mol1   : (      52) 
+ Nr of residues in mol2   : (      53) 
+ Nr of matched residues   : (      47) 
+ Nr of identical residues : (      47) 
+ % identical of matched   : ( 100.000) 
+ % matched   of mol1      : (  90.385) 
+ % identical of mol1      : (  90.385) 
+ D-value    for mol1      : (   0.817) 
+ % matched   of mol2      : (  88.679) 
+ % identical of mol2      : (  88.679) 
+ D-value    for mol2      : (   0.786) 
+
+ Analysis of distance distribution:
+ Number of distances                    :         47
+ Average (A)                            :       1.29
+ Standard deviation (A)                 :       0.55
+ Variance (A**2)                        :       0.31
+ Minimum (A)                            :       0.40
+ Maximum (A)                            :       3.31
+ Range (A)                              :       2.91
+ Sum (A)                                :      60.52
+ Root-mean-square (A)                   :       1.40
+ Harmonic average (A)                   :       1.05
+ Median (A)                             :       1.27
+ 25th Percentile (A)                    :       0.80
+ 75th Percentile (A)                    :       1.56
+ Semi-interquartile range (A)           :       0.76
+ Trimean (A)                            :       1.23
+ 50% Trimmed mean (A)                   :       1.24
+ 10th Percentile (A)                    :       0.57
+ 90th Percentile (A)                    :       1.93
+ 20% Trimmed mean (A)                   :       1.23
+
+ LSQMAN >  Global-superposition-distance-based Needleman-Wunsch alignment
+ Of                   M1 A
+ And                  M2 A
+ Atom type           | CA |
+ Cut-off distance         5.00
+ Log file (optional)   
+
+ Central atoms mol 1 : (         52) 
+ Central atoms mol 2 : (         53) 
+
+ Applying current operator to mol 2 : (   0.618   -0.485    0.618   -0.001 
+    -0.787   -0.617    0.786    0.381   -0.487   33.692   53.707   27.093) 
+
+ Calculating superposition-distance matrix ...
+
+ Executing Needleman-Wunsch ...
+
+      1    -    -   R  [A   1] ... DIST =        -  
+      2    -    -   K  [A   2] ... DIST =        -  
+      3    -    -   R  [A   3] ... DIST =        -  
+      4 [A   1] K   -     -    ... DIST =        -  
+      5 [A   2] R   -     -    ... DIST =        -  
+      6 [A   3] Q | Q  [A   4] ... DIST =     4.70 A
+      7 [A   4] A | A  [A   5] ... DIST =     3.31 A
+      8 [A   5] W | W  [A   6] ... DIST =     1.47 A
+      9 [A   6] L | L  [A   7] ... DIST =     1.36 A
+     10 [A   7] W | W  [A   8] ... DIST =     0.88 A
+     11 [A   8] E | E  [A   9] ... DIST =     0.48 A
+     12 [A   9] E | E  [A  10] ... DIST =     0.40 A
+     13 [A  10] D | D  [A  11] ... DIST =     0.56 A
+     14 [A  11] K | K  [A  12] ... DIST =     0.72 A
+     15 [A  12] N | N  [A  13] ... DIST =     0.73 A
+     16 [A  13] L | L  [A  14] ... DIST =     0.69 A
+     17 [A  14] R | R  [A  15] ... DIST =     1.48 A
+     18 [A  15] S | S  [A  16] ... DIST =     1.94 A
+     19 [A  16] G | G  [A  17] ... DIST =     1.30 A
+     20 [A  17] V | V  [A  18] ... DIST =     1.16 A
+     21 [A  18] R | R  [A  19] ... DIST =     2.31 A
+     22 [A  19] K | K  [A  20] ... DIST =     1.81 A
+     23 [A  20] Y | Y  [A  21] ... DIST =     0.58 A
+     24 [A  21] G | G  [A  22] ... DIST =     0.99 A
+     25 [A  22] E | E  [A  23] ... DIST =     1.41 A
+     26 [A  23] G | G  [A  24] ... DIST =     1.93 A
+     27 [A  24] N | N  [A  25] ... DIST =     1.64 A
+     28 [A  25] W | W  [A  26] ... DIST =     1.31 A
+     29 [A  26] S | S  [A  27] ... DIST =     1.50 A
+     30 [A  27] K | K  [A  28] ... DIST =     1.22 A
+     31 [A  28] I | I  [A  29] ... DIST =     1.18 A
+     32 [A  29] L | L  [A  30] ... DIST =     1.32 A
+     33 [A  30] L | L  [A  31] ... DIST =     1.23 A
+     34 [A  31] H | H  [A  32] ... DIST =     0.99 A
+     35 [A  32] Y | Y  [A  33] ... DIST =     0.75 A
+     36 [A  33] K | K  [A  34] ... DIST =     1.04 A
+     37 [A  34] F | F  [A  35] ... DIST =     1.41 A
+     38 [A  35] N | N  [A  36] ... DIST =     2.05 A
+     39 [A  36] N | N  [A  37] ... DIST =     1.68 A
+     40 [A  37] R | R  [A  38] ... DIST =     1.27 A
+     41 [A  38] T | T  [A  39] ... DIST =     1.76 A
+     42 [A  39] S | S  [A  40] ... DIST =     1.52 A
+     43 [A  40] V | V  [A  41] ... DIST =     1.60 A
+     44 [A  41] M | M  [A  42] ... DIST =     1.28 A
+     45 [A  42] L | L  [A  43] ... DIST =     0.80 A
+     46 [A  43] K | K  [A  44] ... DIST =     0.71 A
+     47 [A  44] D | D  [A  45] ... DIST =     1.12 A
+     48 [A  45] R | R  [A  46] ... DIST =     0.79 A
+     49 [A  46] W | W  [A  47] ... DIST =     0.47 A
+     50 [A  47] R | R  [A  48] ... DIST =     1.10 A
+     51 [A  48] T | T  [A  49] ... DIST =     1.68 A
+     52 [A  49] M | M  [A  50] ... DIST =     1.40 A
+     53 [A  50] K | K  [A  51] ... DIST =     2.20 A
+     54 [A  51] K | K  [A  52] ... DIST =     3.19 A
+     55 [A  52] L | L  [A  53] ... DIST =     3.08 A
+
+ Sequence 1 ---KRQAWLWEEDKNLRSGVRKYGEGNWSKILLHYKFNNRTSVMLKDRWRTMKKL
+ .=ALI |=ID      ||||||||||||||||||||||||||||||||||||||||||||||||||
+ Sequence 2 RKR--QAWLWEEDKNLRSGVRKYGEGNWSKILLHYKFNNRTSVMLKDRWRTMKKL
+
+ Analysis of distance distribution:
+ Number of distances                    :         50
+ Average (A)                            :       1.43
+ Standard deviation (A)                 :       0.80
+ Variance (A**2)                        :       0.64
+ Minimum (A)                            :       0.40
+ Maximum (A)                            :       4.70
+ Range (A)                              :       4.30
+ Sum (A)                                :      71.50
+ Root-mean-square (A)                   :       1.64
+ Harmonic average (A)                   :       1.10
+ Median (A)                             :       1.30
+ 25th Percentile (A)                    :       0.84
+ 75th Percentile (A)                    :       1.66
+ Semi-interquartile range (A)           :       0.82
+ Trimean (A)                            :       1.28
+ 50% Trimmed mean (A)                   :       1.29
+ 10th Percentile (A)                    :       0.63
+ 90th Percentile (A)                    :       2.25
+ 20% Trimmed mean (A)                   :       1.31
+
+ Gap penalty            :       12.500
+ Raw alignment score    :  -1.9656E+02
+ L1 = Length sequence 1 :           52
+ L2 = Length sequence 2 :           53
+ Alignment length       :           55
+ NI = Nr of identities  :           50
+ L3 = Nr of matched res :           50
+ RMSD for those (A)     :        1.625
+ (Note: RMSD calculated after superimposing matched
+  residues; corresponding RT operator not stored)
+ ID = NI/min(L1,L2) (%) :        96.15
+ ID = NI/L3 (%)         :       100.00
+
+ Levitt-Gerstein statistics:
+ Nr of gaps       :            0
+ Similarity score :   9.1422E+02
+ Z-score          :   1.4012E+01
+ P (z > Z)        :   8.2172E-07
+ P (z > Z) is the probability of matching any two
+ random structures and finding a Z-score z which
+ is greater than the Z-score Z of the current pair.
+
+ TM-score statistics:
+ Ltarget          :           52
+ d0 (Ltarget) (A) :        2.327
+ TM-score         :        0.709
+
+ LSQMAN > STOP ... Toodle pip ... statement executed
+
+
+ *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** 
+
+ Version - 071128/9.7.8
+ Started - Thu Dec 20 09:51:46 2007
+ Stopped - Thu Dec 20 09:51:46 2007
+
+ CPU-time taken :
+ User    -      0.2 Sys    -      0.0 Total   -      0.2
+
+ *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** 
+
+ >>>>>>>>>>>>>> USF .... Uppsala Software Factory <<<<<<<<<<<<<<
+ >>>>>>>>>> This program: (c) 1992-2007, G J Kleywegt <<<<<<<<<<
+ >>>>>>>>>>>>>>>> E-mail: gerard@xray.bmc.uu.se <<<<<<<<<<<<<<<<
+ >>>>>>>>>>>>>>>>>> http://xray.bmc.uu.se/usf <<<<<<<<<<<<<<<<<<
+
+ *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** 
+

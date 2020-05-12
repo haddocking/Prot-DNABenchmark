@@ -1,0 +1,55 @@
+Bound to unbound residue mapping
+--------------------------------
+Complex PDB: 1TRO
+Complex PDB: 3WRP
+Complex PDB: 3WRP
+--------------------------------
+
+DNA all residues:
+C1-C19
+C20-C38:C21-C39
+
+DNA interface residues:
+C1-C5:C1-C5
+C11-C19:C11-C19
+C20-C24:C21-C25
+C30-C38:C31-C39
+
+Protein all residues:
+A4-A104:A1-A101
+
+Protein interface residues:
+A11-A11:A8-A8
+A14-A26:A11-A23
+A28-A28:A25-A25
+A30-A40:A27-A37
+A42-A52:A39-A49
+A54-A55:A51-A52
+A62-A65:A59-A62
+A68-A68:A65-A65
+A71-A77:A68-A74
+A79-A86:A76-A83
+A89-A89:A86-A86
+A91-A92:A88-A89
+A95-A96:A92-A93
+A99-A100:A96-A97
+A104-A104:A101-A101
+
+Protein all residues:
+B6-B99:B8-B101
+
+Protein interface residues:
+B6-B6:B8-B8
+B9-B21:B11-B23
+B23-B23:B25-B25
+B25-B35:B27-B37
+B37-B47:B39-B49
+B49-B50:B51-B52
+B57-B60:B59-B62
+B67-B72:B69-B74
+B74-B81:B76-B83
+B84-B84:B86-B86
+B86-B87:B88-B89
+B90-B91:B92-B93
+B94-B95:B96-B97
+B99-B99:B101-B101

@@ -1,0 +1,34 @@
+Bound to unbound residue mapping
+--------------------------------
+Complex PDB: 7MHT
+Complex PDB: 2HMY
+--------------------------------
+
+DNA all residues:
+B1-B24
+
+DNA interface residues:
+B3-B9:B3-B9
+B13-B23:B13-B23
+
+Protein all residues:
+A1-A327
+
+Protein interface residues:
+A44-A44:A44-A44
+A78-A82:A78-A82
+A85-A90:A85-A90
+A97-A97:A97-A97
+A119-A123:A119-A123
+A126-A126:A126-A126
+A162-A165:A162-A165
+A209-A209:A209-A209
+A226-A226:A226-A226
+A228-A228:A228-A228
+A234-A234:A234-A234
+A236-A240:A236-A240
+A242-A242:A242-A242
+A249-A258:A249-A258
+A294-A294:A294-A294
+A296-A297:A296-A297
+A303-A305:A303-A305

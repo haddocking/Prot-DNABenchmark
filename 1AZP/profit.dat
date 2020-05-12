@@ -1,0 +1,25 @@
+Bound to unbound residue mapping
+--------------------------------
+Complex PDB: 1AZP
+Complex PDB: 1SAP
+--------------------------------
+
+DNA all residues:
+B1-B16
+
+DNA interface residues:
+B1-B16
+
+Protein all residues:
+A1-A66
+
+Protein interface residues:
+A7-A10:A7-A10
+A22-A22:A22-A22
+A24-A29:A24-A29
+A31-A31:A31-A31
+A33-A33:A33-A33
+A39-A40:A39-A40
+A42-A42:A42-A42
+A44-A46:A44-A46
+A48-A48:A48-A48

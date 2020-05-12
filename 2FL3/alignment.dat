@@ -1,0 +1,968 @@
+
+ *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** 
+
+ Version  - 071128/9.7.8
+ (c) 1992-2007 Gerard J. Kleywegt, Dept. Cell Mol. Biol., Uppsala (SE)
+ User I/O - routines courtesy of Rolf Boelens, Univ. of Utrecht (NL)
+ Others   - T.A. Jones, G. Bricogne, Rams, W.A. Hendrickson
+ Others   - W. Kabsch, CCP4, PROTEIN, E. Dodson, etc. etc.
+
+ Started  - Thu Dec 20 09:51:49 2007
+ User     - marcvandijk
+ Mode     - interactive
+ Host     - localhost (OSX/Apple)
+ ProcID   - 547
+ Not using a tty as input device
+
+ *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** 
+
+ Reference(s) for this program:
+
+ *  1 * G.J. Kleywegt & T.A. Jones (1994).  Halloween ... Masks and
+        Bones. In "From First Map to Final Model", edited by
+        S. Bailey, R. Hubbard and D. Waller.  SERC Daresbury
+        Laboratory, Warrington, pp. 59-66.
+        [http://xray.bmc.uu.se/gerard/papers/halloween.html]
+
+ *  2 * G.J. Kleywegt & T.A. Jones (1994). A super position.
+        CCP4/ESF-EACBM Newsletter on Protein Crystallography 31,
+        November 1994, pp. 9-14.
+        [http://xray.bmc.uu.se/usf/factory_4.html]
+
+ *  3 * G.J. Kleywegt & T.A. Jones (1995). Where freedom is given,
+        liberties are taken. Structure 3, 535-540.
+        [http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=PubMed&cmd=Retrieve&list_uids=8590014&dopt=Citation]
+
+ *  4 * G.J. Kleywegt (1996). Use of non-crystallographic symmetry
+        in protein structure refinement. Acta Cryst D52, 842-857.
+        [http://scripts.iucr.org/cgi-bin/paper?gr0471]
+
+ *  5 * G.J. Kleywegt (1996). Making the most of your search model.
+        CCP4/ESF-EACBM Newsletter on Protein Crystallography 32,
+        June 1996, pp. 32-36.
+        [http://xray.bmc.uu.se/usf/factory_6.html]
+
+ *  6 * G.J. Kleywegt & T.A. Jones (1996). Phi/Psi-chology:
+        Ramachandran revisited. Structure 4, 1395-1400.
+        [http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=PubMed&cmd=Retrieve&list_uids=8994966&dopt=Citation]
+
+ *  7 * G.J. Kleywegt & T.A. Jones (1997). Detecting folding motifs
+        and similarities in protein structures. Methods in
+        Enzymology 277, 525-545.
+
+ *  8 * T.A. Jones & G.J. Kleywegt (1999). CASP3 comparative
+        modelling evaluation.
+        Proteins: Struct. Funct. Genet. Suppl. 3, 30-46.
+        [http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=PubMed&cmd=Retrieve&list_uids=10526350&dopt=Citation]
+        [http://xray.bmc.uu.se/casp3]
+
+ *  9 * G.J. Kleywegt (1999). Experimental assessment of
+        differences between related protein crystal structures.
+        Acta Cryst. D55, 1878-1857.
+        [http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=PubMed&cmd=Retrieve&list_uids=10531486&dopt=Citation]
+        [http://scripts.iucr.org/cgi-bin/paper?se0283]
+
+ * 10 * Y.W. Chen, E.J. Dodson & G.J. Kleywegt (2000). Does NMR
+        mean "Not for Molecular Replacement" ? Using NMR-based
+        search models to solve protein crystal structures.
+        Structure 8, R213-R220.
+        [http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=PubMed&cmd=Retrieve&list_uids=11080645&dopt=Citation]
+
+ * 11 * D. Madsen & G.J. Kleywegt (2002). Interactive motif and
+        fold recognition in protein structures. J. Appl. Cryst.
+        35, 137-139.
+        [http://scripts.iucr.org/cgi-bin/paper?wt0007]
+
+ * 12 * M. Novotny, D. Madsen & G.J. Kleywegt (2004). An evaluation
+        of protein-fold-comparison servers. Proteins, 54, 260-270
+        (2004).
+        [http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=PubMed&cmd=Retrieve&list_uids=14696188&dopt=Citation]
+
+ * 13 * M.L. Sierk & G.J. Kleywegt (2004). Deja vu all over again:
+        finding and analyzing protein structure similarities.
+        Structure 12, 2103-2111.
+        [http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=PubMed&cmd=Retrieve&list_uids=15576025&dopt=Citation]
+
+ * 14 * Kleywegt, G.J., Zou, J.Y., Kjeldgaard, M. & Jones, T.A. (2001).
+        Around O. In: "International Tables for Crystallography, Vol. F.
+        Crystallography of Biological Macromolecules" (Rossmann, M.G.
+        & Arnold, E., Editors). Chapter 17.1, pp. 353-356, 366-367.
+        Dordrecht: Kluwer Academic Publishers, The Netherlands.
+
+ ==> For manuals and up-to-date references, visit:
+ ==>     http://xray.bmc.uu.se/usf
+ ==> For reprints, visit:
+ ==>     http://xray.bmc.uu.se/gerard
+ ==> For downloading up-to-date versions, visit:
+ ==>     ftp://xray.bmc.uu.se/pub/gerard
+
+ *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** 
+
+ Allocate buffer arrays of size  : (    1000000) 
+
+ Max nr of molecules             : (          8) 
+ Max nr of residues per molecule : (      30000) 
+ Max nr of atoms per molecule    : (     200000) 
+ Max nr of atom types            : (         15) 
+ Max nr of chains/models per mol : (         26) 
+
+ *** BLOSUM-45 substitution matrix loaded ***
+
+ Symbol START_TIME : (Thu Dec 20 09:51:49 2007) 
+ Symbol USERNAME : (marcvandijk) 
+
+ Initialising : (XVRML - 20051205/0.8) 
+ Nr of predefined colours : (        411) 
+
+
+ LSQMAN options :
+
+ ? (list options)                     ! (comment)
+ QUit                                 $ shell_command
+ & symbol value                       & ? (list symbols)
+ @ macro_file                         ECho on_off
+ # parameter(s) (command history)     
+
+ REad mol pdb_file [chain] [atom]     WRite mol pdb_file [chain] [first] [last]
+ DElete mol                           ANnotate mol comment_string
+ LIst [mol]                           CHain_mode mode
+ TYpe_residues mol                    BFactor_range b_lo b_hi
+ FRactionalise mol                    ORthogonalise mol
+ CEll mol a b c al be ga              SUbtract_ave_b mol
+ HYdrogens keep_or_strip              HEtatm keep_or_strip
+ NMr_model_mode all_or_first          AA_substitution_matrix filename
+
+ ALter CHain_id mol chain new_chain   ALter SEgid mol segid new_segid
+ ALter FOrce mol chain new_segid      ALter SAme mol chain
+ ALter REnumber mol chain [first]     
+
+ EXplicit mol1 range1 mol2 range2     NWunsch mol1 chain1 mol2 chain2 gap
+ BRute_force mol1 chain1 mol2 chain2 frag_length frag_step min_match [S|D] [slide_step]
+ FAst_force  mol1 chain1 mol2 chain2 frag_length frag_step min_match [S|D] [slide_step]
+ XAlignment mol1 chain1 mol2 chain2 pir_alignment_file
+
+ IMprove mol1 range1 mol2 range2      
+ DP_improve mol1 chain1 mol2 chain2 mode cut_off max_cycles [verbose]
+
+ GLobal_nw mol1 chain1 mol2 chain2 cut_off [log_file]
+
+ EDit_operator mol1 mol2 val1 ...     SHow_operator mol1 mol2
+ SAve_operator mol1 mol2 file [name]  PErturb_operator mol1 mol2 [amplitude]
+ APply_operator mol1 mol2_to_move [chain] [first] [last]
+ OLd_o_operator mol1 mol2 file        RMsd_calc mol1 range1 mol2 range2 [Ltarget]
+ WAters mol1 mol2 cut_off plot_file   HIsto_dist mol1 mol2 cut_off bin
+
+ MOrph mol1 range1 mol2 range2 nsteps basename type oid range3 cutoff
+ SImilarity_plot mol1 chain1 mol2 chain2 plot_file [start] [end] [step]
+ LEsk_plot mol1 chain1 mol2 chain2 plot_file
+ PHipsi_plot mol1 range1 mol2 range2 plot_file [cut-off] [hist_bin] [hist_max]
+ ETa_theta_plot mol1 range1 mol2 range2 plot_file [cut-off] [hist_bin] [hist_max]
+ DIstance_plot mol1 range1 mol2 range2 plot_file [cut-off] [hist_bin] [hist_max]
+ DDihe_plot mol1 range1 mol2 range2 plot_file [cut-off] [hist_bin] [hist_max]
+ D1_D2_plot mol1 range1 mol2 range2 plot_file [cut-off] [hist_bin] [hist_max]
+ QDiff_dist_plot mol1 range1 mol2 range2 2d_plot_file
+ DChi mol1 range1 mol2 range2 [cut-off] 
+ SOap_film mol1 chain1 mol2 chain2 odl_file [verbose]
+
+ MCentral mol residue_range exp_imp [rt_file]  
+ MAlign mol residue_range exp_imp chain
+ MDihedral mol chain plot_file [cut]  MRamachandran mol chain ps_file [cut] [how]
+ MSide_ch mol chain plot_file [cut]   MTorsion mol chain ps_file [cut] [how]
+ VMain_ch mol chain plot_file [cut]   VSide_ch mol chain plot_file [cut]
+ MPlot mol chain plot_file ps_file [dmax_black] [cut_dist_print]
+ MBfactors mol chain plot_file [cut]  
+
+ JUdge target tchn parent pchn model mchn dist phi chi 
+ CAsp target tchn model mchn [start] [end] [step]
+
+ GEt XYz mol chain x y z radius symbol_name [O_macro]
+
+ FIx_atom_names mol1 range1 mol2 range2 mode how what [min_gain] [cut_off]
+ NOmenclature mol                     INvert_ncs infile outfile
+ NUcleic_acid_pdb_nomenclature mol    
+
+ ATom_types ?                         ATom_types CA
+ ATom_types MAin_chain                ATom_types SIde_chain
+ ATom_types EXtended_main_chain       ATom_types ALl
+ ATom_types NOn_hydrogen              ATom_types DEfine type1 [type2 ...]
+ ATom_types PHosphorous               ATom_types TRace_and_side_chain
+ ATom_types C4*                       ATom_types NUcleic_acid_backbone
+
+ SEt ?                                SEt REset_defaults
+ SEt COarse_6A_fit_defaults           SEt INtermediate_4A_fit_defaults
+ SEt FIne_tune_3A_fit_defaults        SEt SImilar_mols_2A_fit_defaults
+
+ SEt MAx_nr_improve_cycles value      SEt DIst_max value
+ SEt MIn_fragment_length value        SEt DEcay value
+ SEt OPtimisation_criterion value     SEt SEquential_hits on_off
+ SEt RMs_weight value                 SEt FRagment_length_decay value
+ SEt SHift_correction on_off          SEt NUcleic_acid_defaults
+
+ OMacro INit mol1 file                OMacro APpend mol2
+ OMacro WRite o_command_string        OMacro CLose_file
+ OMacro DEfine central_atom max_dist connect_file
+
+ VRml SEtup central_atom max_dist backgr_col default_col
+ VRml INit [vrml_file]                VRml COlour_list
+ VRml ADd mol [chain] [colour]        VRml ALl_chains mol
+
+ Max nr of molecules             : (          8) 
+ Max nr of residues per molecule : (      30000) 
+ Max nr of atoms per molecule    : (     200000) 
+ Max nr of atom types            : (         15) 
+
+ LSQMAN >  Old chain |A| becomes chain A
+ Nr of lines read from file : (       1940) 
+ Nr of atoms in molecule    : (       1939) 
+ Nr of chains or models     : (          1) 
+ Stripped hydrogen atoms    : (          0) 
+ Nr of HETATMs              : (          0) 
+ Stripped alt. conf. atoms  : (          0) 
+ LSQMAN >  Old chain |A| becomes chain A
+ Nr of lines read from file : (       1983) 
+ Nr of atoms in molecule    : (       1982) 
+ Nr of chains or models     : (          1) 
+ Stripped hydrogen atoms    : (          0) 
+ Nr of HETATMs              : (          0) 
+ Stripped alt. conf. atoms  : (          0) 
+ LSQMAN >  Sequence-based Needleman-Wunsch alignment
+ Of              M1 A
+ And             M2 A
+ Atom type      | CA |
+ Gap penalty         5.00
+ Central atoms mol 1 : (        247) 
+ Central atoms mol 2 : (        241) 
+
+ Executing Needleman-Wunsch ...
+
+
+ Sequence 1 MNLVELGSKTAKDGFKNEKDIADRFENWKENSEAQDWLVTMGHNLDEIKSVKAVVLSGYK
+    |=ID          ||||||||||||||||||||||||||||||||||||||||||||||||||||||
+ Sequence 2 ------GSKTAKDGFKNEKDIADRFENWKENSEAQDWLVTMGHNLDEIKSVKAVVLSGYK
+
+ Sequence 1 SDINVQVLVFYKDALDIHNIQVKLVSNKRGFNQIDKHWLAHYQEMWKFDDNLLRILRHFT
+    |=ID    ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+ Sequence 2 SDINVQVLVFYKDALDIHNIQVKLVSNKRGFNQIDKHWLAHYQEMWKFDDNLLRILRHFT
+
+ Sequence 1 GELPPYHSNTKDKRRMFMTEFSQEEQNIVLNWLEKNRVLVLTDILRGRGDFAAEWVLVAQ
+    |=ID    ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+ Sequence 2 GELPPYHSNTKDKRRMFMTEFSQEEQNIVLNWLEKNRVLVLTDILRGRGDFAAEWVLVAQ
+
+ Sequence 1 KVSNNARWILRNINEVLQHYGSGDISLSPRGSINFGRVTIQRKGGDNGRETANMLQFKID
+    |=ID    ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+ Sequence 2 KVSNNARWILRNINEVLQHYGSGDISLSPRGSINFGRVTIQRKGGDNGRETANMLQFKID
+
+ Sequence 1 PTELFDI
+    |=ID    |||||||
+ Sequence 2 PTELFDI
+
+ Gap penalty         : (   5.000) 
+ Raw alignment score : (  1.481E+03) 
+ Length sequence 1   : (     247) 
+ Length sequence 2   : (     241) 
+ Alignment length    : (     247) 
+ Nr of identities    : (     241) 
+ Perc identities     : ( 100.000) 
+ Nr of similarities  : (     241) 
+ Perc similarities   : ( 100.000) 
+ Nr of matched res   : (     241) 
+ RMSD (A) for those  : (   4.370) 
+ Operator stored     : (   0.797    0.530   -0.290   -0.498    0.848    
+  0.180    0.342    0.001    0.940   82.808  201.765  119.452) 
+
+ The    241 atoms have an RMS distance of    4.370 A
+ SI = RMS * Nmin / Nmatch             =      4.37005
+ MI = (1+Nmatch)/{(1+W*RMS)*(1+Nmin)} =      0.18622
+ CR = Maiorov-Crippen RHO (0-2)       =      0.21880
+ Estimated RMSD for 2 random proteins =     21.622 A
+ RR = Relative RMSD                   =      0.20211
+ NR = Normalised RMSD (100)           =      3.035 A
+ RMSD / Nalign                        =    0.01813 A
+ SAS(1) = cRMS * (100/Nmatch)         =      1.813 A
+ SAS(2) = cRMS * (100/Nmatch)^2       =      0.752 A
+ SAS(3) = cRMS * (100/Nmatch)^3       =      0.312 A
+ SAS(4) = cRMS * (100/Nmatch)^4       =      0.130 A
+ LSQMAN >  Improve fit of  M1 A*
+ And             M2 A*
+ Atom type      | CA |
+ Nr of atoms in mol1 : (        247) 
+ Nr of atoms in mol2 : (        241) 
+
+ Found fragment of length : (      71) 
+ Found fragment of length : (      90) 
+ Found fragment of length : (      40) 
+ Found fragment of length : (      22) 
+
+ Cycle : (          1) 
+ Distance cut-off (A)      : (   3.500) 
+ Min fragment length (res) : (       3) 
+ The    223 atoms have an RMS distance of    0.718 A
+ SI = RMS * Nmin / Nmatch             =      0.77578
+ MI = (1+Nmatch)/{(1+W*RMS)*(1+Nmin)} =      0.53883
+ CR = Maiorov-Crippen RHO (0-2)       =      0.03571
+ Estimated RMSD for 2 random proteins =     21.622 A
+ RR = Relative RMSD                   =      0.03320
+ NR = Normalised RMSD (100)           =      0.512 A
+ RMSD / Nalign                        =    0.00322 A
+ SAS(1) = cRMS * (100/Nmatch)         =      0.322 A
+ SAS(2) = cRMS * (100/Nmatch)^2       =      0.144 A
+ SAS(3) = cRMS * (100/Nmatch)^3       =      0.065 A
+ SAS(4) = cRMS * (100/Nmatch)^4       =      0.029 A
+ RMS delta B for matched atoms        =    30.926 A2
+ Corr. coefficient matched atom Bs    =        0.576
+ Rotation     :   0.82389605 -0.49259877  0.28025267
+                  0.51962507  0.85398102 -0.02657257
+                 -0.22624084  0.16751935  0.95955831
+ Translation  :      85.5777    203.0313    117.2671
+
+ Found fragment of length : (     165) 
+ Found fragment of length : (      64) 
+
+ Cycle : (          2) 
+ Distance cut-off (A)      : (   3.500) 
+ Min fragment length (res) : (       3) 
+ The    229 atoms have an RMS distance of    0.821 A
+ SI = RMS * Nmin / Nmatch             =      0.86389
+ MI = (1+Nmatch)/{(1+W*RMS)*(1+Nmin)} =      0.52196
+ CR = Maiorov-Crippen RHO (0-2)       =      0.04090
+ Estimated RMSD for 2 random proteins =     21.597 A
+ RR = Relative RMSD                   =      0.03801
+ NR = Normalised RMSD (100)           =      0.580 A
+ RMSD / Nalign                        =    0.00358 A
+ SAS(1) = cRMS * (100/Nmatch)         =      0.358 A
+ SAS(2) = cRMS * (100/Nmatch)^2       =      0.157 A
+ SAS(3) = cRMS * (100/Nmatch)^3       =      0.068 A
+ SAS(4) = cRMS * (100/Nmatch)^4       =      0.030 A
+ RMS delta B for matched atoms        =    30.803 A2
+ Corr. coefficient matched atom Bs    =        0.552
+ Rotation     :   0.82576901 -0.49112535  0.27731127
+                  0.51799035  0.85491568 -0.02837835
+                 -0.22314042  0.16707851  0.96036106
+ Translation  :      85.6069    203.1086    117.1544
+
+ Fit did not improve in this cycle !
+ Alignment based on previous operator !
+
+ Fragment ASN-A  17 <===> ASN-A  11 @     0.91 A *
+          GLU-A  18 <===> GLU-A  12 @     0.69 A *
+          LYS-A  19 <===> LYS-A  13 @     0.38 A *
+          ASP-A  20 <===> ASP-A  14 @     0.61 A *
+          ILE-A  21 <===> ILE-A  15 @     0.44 A *
+          ALA-A  22 <===> ALA-A  16 @     0.34 A *
+          ASP-A  23 <===> ASP-A  17 @     0.25 A *
+          ARG-A  24 <===> ARG-A  18 @     0.19 A *
+          PHE-A  25 <===> PHE-A  19 @     0.17 A *
+          GLU-A  26 <===> GLU-A  20 @     0.26 A *
+          ASN-A  27 <===> ASN-A  21 @     1.20 A *
+          TRP-A  28 <===> TRP-A  22 @     1.22 A *
+          LYS-A  29 <===> LYS-A  23 @     1.45 A *
+          GLU-A  30 <===> GLU-A  24 @     1.15 A *
+          ASN-A  31 <===> ASN-A  25 @     0.78 A *
+          SER-A  32 <===> SER-A  26 @     0.50 A *
+          GLU-A  33 <===> GLU-A  27 @     0.20 A *
+          ALA-A  34 <===> ALA-A  28 @     0.12 A *
+          GLN-A  35 <===> GLN-A  29 @     0.41 A *
+          ASP-A  36 <===> ASP-A  30 @     0.30 A *
+          TRP-A  37 <===> TRP-A  31 @     0.47 A *
+          LEU-A  38 <===> LEU-A  32 @     0.50 A *
+          VAL-A  39 <===> VAL-A  33 @     0.54 A *
+          THR-A  40 <===> THR-A  34 @     0.49 A *
+          MET-A  41 <===> MET-A  35 @     0.49 A *
+          GLY-A  42 <===> GLY-A  36 @     0.91 A *
+          HIS-A  43 <===> HIS-A  37 @     0.72 A *
+          ASN-A  44 <===> ASN-A  38 @     0.76 A *
+          LEU-A  45 <===> LEU-A  39 @     0.77 A *
+          ASP-A  46 <===> ASP-A  40 @     0.93 A *
+          GLU-A  47 <===> GLU-A  41 @     1.11 A *
+          ILE-A  48 <===> ILE-A  42 @     0.80 A *
+          LYS-A  49 <===> LYS-A  43 @     0.79 A *
+          SER-A  50 <===> SER-A  44 @     0.55 A *
+          VAL-A  51 <===> VAL-A  45 @     0.25 A *
+          LYS-A  52 <===> LYS-A  46 @     0.16 A *
+          ALA-A  53 <===> ALA-A  47 @     0.30 A *
+          VAL-A  54 <===> VAL-A  48 @     0.43 A *
+          VAL-A  55 <===> VAL-A  49 @     0.50 A *
+          LEU-A  56 <===> LEU-A  50 @     0.81 A *
+          SER-A  57 <===> SER-A  51 @     1.68 A *
+          GLY-A  58 <===> GLY-A  52 @     1.88 A *
+          TYR-A  59 <===> TYR-A  53 @     1.11 A *
+          LYS-A  60 <===> LYS-A  54 @     1.00 A *
+          SER-A  61 <===> SER-A  55 @     0.49 A *
+          ASP-A  62 <===> ASP-A  56 @     0.44 A *
+          ILE-A  63 <===> ILE-A  57 @     0.25 A *
+          ASN-A  64 <===> ASN-A  58 @     0.32 A *
+          VAL-A  65 <===> VAL-A  59 @     0.25 A *
+          GLN-A  66 <===> GLN-A  60 @     0.30 A *
+          VAL-A  67 <===> VAL-A  61 @     0.34 A *
+          LEU-A  68 <===> LEU-A  62 @     0.96 A *
+          VAL-A  69 <===> VAL-A  63 @     0.97 A *
+          PHE-A  70 <===> PHE-A  64 @     0.81 A *
+          TYR-A  71 <===> TYR-A  65 @     0.86 A *
+          LYS-A  72 <===> LYS-A  66 @     1.53 A *
+          ASP-A  73 <===> ASP-A  67 @     1.14 A *
+          ALA-A  74 <===> ALA-A  68 @     1.15 A *
+          LEU-A  75 <===> LEU-A  69 @     0.75 A *
+          ASP-A  76 <===> ASP-A  70 @     0.41 A *
+          ILE-A  77 <===> ILE-A  71 @     0.46 A *
+          HIS-A  78 <===> HIS-A  72 @     0.21 A *
+          ASN-A  79 <===> ASN-A  73 @     0.41 A *
+          ILE-A  80 <===> ILE-A  74 @     0.50 A *
+          GLN-A  81 <===> GLN-A  75 @     0.41 A *
+          VAL-A  82 <===> VAL-A  76 @     0.51 A *
+          LYS-A  83 <===> LYS-A  77 @     0.69 A *
+          LEU-A  84 <===> LEU-A  78 @     0.61 A *
+          VAL-A  85 <===> VAL-A  79 @     0.94 A *
+          SER-A  86 <===> SER-A  80 @     1.18 A *
+          ASN-A  87 <===> ASN-A  81 @     2.24 A *
+ Fragment PHE-A  91 <===> PHE-A  85 @     0.89 A *
+          ASN-A  92 <===> ASN-A  86 @     0.47 A *
+          GLN-A  93 <===> GLN-A  87 @     0.24 A *
+          ILE-A  94 <===> ILE-A  88 @     0.22 A *
+          ASP-A  95 <===> ASP-A  89 @     0.21 A *
+          LYS-A  96 <===> LYS-A  90 @     0.20 A *
+          HIS-A  97 <===> HIS-A  91 @     0.19 A *
+          TRP-A  98 <===> TRP-A  92 @     0.09 A *
+          LEU-A  99 <===> LEU-A  93 @     0.20 A *
+          ALA-A 100 <===> ALA-A  94 @     0.52 A *
+          HIS-A 101 <===> HIS-A  95 @     0.49 A *
+          TYR-A 102 <===> TYR-A  96 @     0.28 A *
+          GLN-A 103 <===> GLN-A  97 @     0.34 A *
+          GLU-A 104 <===> GLU-A  98 @     0.32 A *
+          MET-A 105 <===> MET-A  99 @     0.44 A *
+          TRP-A 106 <===> TRP-A 100 @     0.22 A *
+          LYS-A 107 <===> LYS-A 101 @     0.14 A *
+          PHE-A 108 <===> PHE-A 102 @     0.26 A *
+          ASP-A 109 <===> ASP-A 103 @     0.43 A *
+          ASP-A 110 <===> ASP-A 104 @     0.75 A *
+          ASN-A 111 <===> ASN-A 105 @     0.82 A *
+          LEU-A 112 <===> LEU-A 106 @     0.38 A *
+          LEU-A 113 <===> LEU-A 107 @     0.48 A *
+          ARG-A 114 <===> ARG-A 108 @     0.56 A *
+          ILE-A 115 <===> ILE-A 109 @     0.63 A *
+          LEU-A 116 <===> LEU-A 110 @     0.48 A *
+          ARG-A 117 <===> ARG-A 111 @     0.65 A *
+          HIS-A 118 <===> HIS-A 112 @     0.58 A *
+          PHE-A 119 <===> PHE-A 113 @     0.49 A *
+          THR-A 120 <===> THR-A 114 @     0.59 A *
+          GLY-A 121 <===> GLY-A 115 @     0.54 A *
+          GLU-A 122 <===> GLU-A 116 @     0.52 A *
+          LEU-A 123 <===> LEU-A 117 @     0.39 A *
+          PRO-A 124 <===> PRO-A 118 @     0.93 A *
+          PRO-A 125 <===> PRO-A 119 @     0.65 A *
+          TYR-A 126 <===> TYR-A 120 @     0.66 A *
+          HIS-A 127 <===> HIS-A 121 @     1.20 A *
+          SER-A 128 <===> SER-A 122 @     1.19 A *
+          ASN-A 129 <===> ASN-A 123 @     1.47 A *
+          THR-A 130 <===> THR-A 124 @     1.22 A *
+          LYS-A 131 <===> LYS-A 125 @     1.40 A *
+          ASP-A 132 <===> ASP-A 126 @     1.08 A *
+          LYS-A 133 <===> LYS-A 127 @     0.46 A *
+          ARG-A 134 <===> ARG-A 128 @     1.07 A *
+          ARG-A 135 <===> ARG-A 129 @     0.58 A *
+          MET-A 136 <===> MET-A 130 @     0.31 A *
+          PHE-A 137 <===> PHE-A 131 @     0.55 A *
+          MET-A 138 <===> MET-A 132 @     0.50 A *
+          THR-A 139 <===> THR-A 133 @     0.61 A *
+          GLU-A 140 <===> GLU-A 134 @     0.67 A *
+          PHE-A 141 <===> PHE-A 135 @     0.47 A *
+          SER-A 142 <===> SER-A 136 @     0.45 A *
+          GLN-A 143 <===> GLN-A 137 @     0.62 A *
+          GLU-A 144 <===> GLU-A 138 @     0.36 A *
+          GLU-A 145 <===> GLU-A 139 @     0.43 A *
+          GLN-A 146 <===> GLN-A 140 @     0.39 A *
+          ASN-A 147 <===> ASN-A 141 @     0.29 A *
+          ILE-A 148 <===> ILE-A 142 @     0.23 A *
+          VAL-A 149 <===> VAL-A 143 @     0.17 A *
+          LEU-A 150 <===> LEU-A 144 @     0.31 A *
+          ASN-A 151 <===> ASN-A 145 @     0.40 A *
+          TRP-A 152 <===> TRP-A 146 @     0.46 A *
+          LEU-A 153 <===> LEU-A 147 @     0.47 A *
+          GLU-A 154 <===> GLU-A 148 @     0.48 A *
+          LYS-A 155 <===> LYS-A 149 @     0.46 A *
+          ASN-A 156 <===> ASN-A 150 @     0.35 A *
+          ARG-A 157 <===> ARG-A 151 @     0.35 A *
+          VAL-A 158 <===> VAL-A 152 @     0.34 A *
+          LEU-A 159 <===> LEU-A 153 @     0.37 A *
+          VAL-A 160 <===> VAL-A 154 @     0.30 A *
+          LEU-A 161 <===> LEU-A 155 @     0.20 A *
+          THR-A 162 <===> THR-A 156 @     0.28 A *
+          ASP-A 163 <===> ASP-A 157 @     0.30 A *
+          ILE-A 164 <===> ILE-A 158 @     0.21 A *
+          LEU-A 165 <===> LEU-A 159 @     0.26 A *
+          ARG-A 166 <===> ARG-A 160 @     0.32 A *
+          GLY-A 167 <===> GLY-A 161 @     0.33 A *
+          ARG-A 168 <===> ARG-A 162 @     0.44 A *
+          GLY-A 169 <===> GLY-A 163 @     0.75 A *
+          ASP-A 170 <===> ASP-A 164 @     0.81 A *
+          PHE-A 171 <===> PHE-A 165 @     0.50 A *
+          ALA-A 172 <===> ALA-A 166 @     0.30 A *
+          ALA-A 173 <===> ALA-A 167 @     0.21 A *
+          GLU-A 174 <===> GLU-A 168 @     0.24 A *
+          TRP-A 175 <===> TRP-A 169 @     0.51 A *
+          VAL-A 176 <===> VAL-A 170 @     0.52 A *
+          LEU-A 177 <===> LEU-A 171 @     0.21 A *
+          VAL-A 178 <===> VAL-A 172 @     0.71 A *
+          ALA-A 179 <===> ALA-A 173 @     0.83 A *
+          GLN-A 180 <===> GLN-A 174 @     0.92 A *
+ Fragment ASN-A 185 <===> ASN-A 179 @     2.55 A *
+          ALA-A 186 <===> ALA-A 180 @     0.87 A *
+          ARG-A 187 <===> ARG-A 181 @     1.76 A *
+          TRP-A 188 <===> TRP-A 182 @     1.33 A *
+          ILE-A 189 <===> ILE-A 183 @     0.59 A *
+          LEU-A 190 <===> LEU-A 184 @     0.46 A *
+          ARG-A 191 <===> ARG-A 185 @     0.38 A *
+          ASN-A 192 <===> ASN-A 186 @     0.38 A *
+          ILE-A 193 <===> ILE-A 187 @     0.29 A *
+          ASN-A 194 <===> ASN-A 188 @     0.41 A *
+          GLU-A 195 <===> GLU-A 189 @     0.37 A *
+          VAL-A 196 <===> VAL-A 190 @     0.37 A *
+          LEU-A 197 <===> LEU-A 191 @     0.23 A *
+          GLN-A 198 <===> GLN-A 192 @     0.49 A *
+          HIS-A 199 <===> HIS-A 193 @     0.40 A *
+          TYR-A 200 <===> TYR-A 194 @     0.39 A *
+          GLY-A 201 <===> GLY-A 195 @     0.58 A *
+          SER-A 202 <===> SER-A 196 @     0.85 A *
+          GLY-A 203 <===> GLY-A 197 @     0.90 A *
+          ASP-A 204 <===> ASP-A 198 @     0.47 A *
+          ILE-A 205 <===> ILE-A 199 @     0.65 A *
+          SER-A 206 <===> SER-A 200 @     0.86 A *
+          LEU-A 207 <===> LEU-A 201 @     0.97 A *
+          SER-A 208 <===> SER-A 202 @     0.91 A *
+          PRO-A 209 <===> PRO-A 203 @     1.48 A *
+          ARG-A 210 <===> ARG-A 204 @     1.15 A *
+          GLY-A 211 <===> GLY-A 205 @     0.77 A *
+          SER-A 212 <===> SER-A 206 @     0.53 A *
+          ILE-A 213 <===> ILE-A 207 @     0.44 A *
+          ASN-A 214 <===> ASN-A 208 @     0.42 A *
+          PHE-A 215 <===> PHE-A 209 @     0.33 A *
+          GLY-A 216 <===> GLY-A 210 @     0.74 A *
+          ARG-A 217 <===> ARG-A 211 @     0.22 A *
+          VAL-A 218 <===> VAL-A 212 @     0.54 A *
+          THR-A 219 <===> THR-A 213 @     0.36 A *
+          ILE-A 220 <===> ILE-A 214 @     0.33 A *
+          GLN-A 221 <===> GLN-A 215 @     0.28 A *
+          ARG-A 222 <===> ARG-A 216 @     0.35 A *
+          LYS-A 223 <===> LYS-A 217 @     0.23 A *
+          GLY-A 224 <===> GLY-A 218 @     0.92 A *
+ Fragment ASP-A 226 <===> ASP-A 220 @     1.42 A *
+          ASN-A 227 <===> ASN-A 221 @     1.40 A *
+          GLY-A 228 <===> GLY-A 222 @     1.51 A *
+          ARG-A 229 <===> ARG-A 223 @     0.49 A *
+          GLU-A 230 <===> GLU-A 224 @     0.71 A *
+          THR-A 231 <===> THR-A 225 @     0.60 A *
+          ALA-A 232 <===> ALA-A 226 @     0.17 A *
+          ASN-A 233 <===> ASN-A 227 @     0.34 A *
+          MET-A 234 <===> MET-A 228 @     0.33 A *
+          LEU-A 235 <===> LEU-A 229 @     0.25 A *
+          GLN-A 236 <===> GLN-A 230 @     0.27 A *
+          PHE-A 237 <===> PHE-A 231 @     0.13 A *
+          LYS-A 238 <===> LYS-A 232 @     0.10 A *
+          ILE-A 239 <===> ILE-A 233 @     0.09 A *
+          ASP-A 240 <===> ASP-A 234 @     0.35 A *
+          PRO-A 241 <===> PRO-A 235 @     0.38 A *
+          THR-A 242 <===> THR-A 236 @     0.29 A *
+          GLU-A 243 <===> GLU-A 237 @     0.26 A *
+          LEU-A 244 <===> LEU-A 238 @     0.35 A *
+          PHE-A 245 <===> PHE-A 239 @     0.73 A *
+          ASP-A 246 <===> ASP-A 240 @     1.41 A *
+          ILE-A 247 <===> ILE-A 241 @     1.30 A *
+
+ Nr of residues in mol1   : (     247) 
+ Nr of residues in mol2   : (     241) 
+ Nr of matched residues   : (     223) 
+ Nr of identical residues : (     223) 
+ % identical of matched   : ( 100.000) 
+ % matched   of mol1      : (  90.283) 
+ % identical of mol1      : (  90.283) 
+ D-value    for mol1      : (   0.815) 
+ % matched   of mol2      : (  92.531) 
+ % identical of mol2      : (  92.531) 
+ D-value    for mol2      : (   0.856) 
+
+ Analysis of distance distribution:
+ Number of distances                    :        223
+ Average (A)                            :       0.60
+ Standard deviation (A)                 :       0.40
+ Variance (A**2)                        :       0.16
+ Minimum (A)                            :       0.09
+ Maximum (A)                            :       2.55
+ Range (A)                              :       2.46
+ Sum (A)                                :     133.24
+ Root-mean-square (A)                   :       0.72
+ Harmonic average (A)                   :       0.40
+ Median (A)                             :       0.48
+ 25th Percentile (A)                    :       0.32
+ 75th Percentile (A)                    :       0.78
+ Semi-interquartile range (A)           :       0.46
+ Trimean (A)                            :       0.52
+ 50% Trimmed mean (A)                   :       0.50
+ 10th Percentile (A)                    :       0.22
+ 90th Percentile (A)                    :       1.15
+ 20% Trimmed mean (A)                   :       0.54
+
+ LSQMAN >  Global-superposition-distance-based Needleman-Wunsch alignment
+ Of                   M1 A
+ And                  M2 A
+ Atom type           | CA |
+ Cut-off distance         5.00
+ Log file (optional)   
+
+ Central atoms mol 1 : (        247) 
+ Central atoms mol 2 : (        241) 
+
+ Applying current operator to mol 2 : (   0.824    0.520   -0.226   -0.493 
+     0.854    0.168    0.280   -0.027    0.960   85.578  203.031  117.267) 
+
+ Calculating superposition-distance matrix ...
+
+ Executing Needleman-Wunsch ...
+
+      1    -    -   G  [A   1] ... DIST =        -  
+      2    -    -   S  [A   2] ... DIST =        -  
+      3    -    -   K  [A   3] ... DIST =        -  
+      4    -    -   T  [A   4] ... DIST =        -  
+      5    -    -   A  [A   5] ... DIST =        -  
+      6    -    -   K  [A   6] ... DIST =        -  
+      7    -    -   D  [A   7] ... DIST =        -  
+      8    -    -   G  [A   8] ... DIST =        -  
+      9    -    -   F  [A   9] ... DIST =        -  
+     10    -    -   K  [A  10] ... DIST =        -  
+     11 [A   1] M   -     -    ... DIST =        -  
+     12 [A   2] N   -     -    ... DIST =        -  
+     13 [A   3] L   -     -    ... DIST =        -  
+     14 [A   4] V   -     -    ... DIST =        -  
+     15 [A   5] E   -     -    ... DIST =        -  
+     16 [A   6] L   -     -    ... DIST =        -  
+     17 [A   7] G   -     -    ... DIST =        -  
+     18 [A   8] S   -     -    ... DIST =        -  
+     19 [A   9] K   -     -    ... DIST =        -  
+     20 [A  10] T   -     -    ... DIST =        -  
+     21 [A  11] A   -     -    ... DIST =        -  
+     22 [A  12] K   -     -    ... DIST =        -  
+     23 [A  13] D   -     -    ... DIST =        -  
+     24 [A  14] G   -     -    ... DIST =        -  
+     25 [A  15] F   -     -    ... DIST =        -  
+     26 [A  16] K   -     -    ... DIST =        -  
+     27 [A  17] N | N  [A  11] ... DIST =     0.91 A
+     28 [A  18] E | E  [A  12] ... DIST =     0.69 A
+     29 [A  19] K | K  [A  13] ... DIST =     0.38 A
+     30 [A  20] D | D  [A  14] ... DIST =     0.61 A
+     31 [A  21] I | I  [A  15] ... DIST =     0.44 A
+     32 [A  22] A | A  [A  16] ... DIST =     0.34 A
+     33 [A  23] D | D  [A  17] ... DIST =     0.25 A
+     34 [A  24] R | R  [A  18] ... DIST =     0.19 A
+     35 [A  25] F | F  [A  19] ... DIST =     0.17 A
+     36 [A  26] E | E  [A  20] ... DIST =     0.26 A
+     37 [A  27] N | N  [A  21] ... DIST =     1.20 A
+     38 [A  28] W | W  [A  22] ... DIST =     1.22 A
+     39 [A  29] K | K  [A  23] ... DIST =     1.45 A
+     40 [A  30] E | E  [A  24] ... DIST =     1.15 A
+     41 [A  31] N | N  [A  25] ... DIST =     0.78 A
+     42 [A  32] S | S  [A  26] ... DIST =     0.50 A
+     43 [A  33] E | E  [A  27] ... DIST =     0.20 A
+     44 [A  34] A | A  [A  28] ... DIST =     0.12 A
+     45 [A  35] Q | Q  [A  29] ... DIST =     0.41 A
+     46 [A  36] D | D  [A  30] ... DIST =     0.30 A
+     47 [A  37] W | W  [A  31] ... DIST =     0.47 A
+     48 [A  38] L | L  [A  32] ... DIST =     0.50 A
+     49 [A  39] V | V  [A  33] ... DIST =     0.54 A
+     50 [A  40] T | T  [A  34] ... DIST =     0.49 A
+     51 [A  41] M | M  [A  35] ... DIST =     0.49 A
+     52 [A  42] G | G  [A  36] ... DIST =     0.91 A
+     53 [A  43] H | H  [A  37] ... DIST =     0.72 A
+     54 [A  44] N | N  [A  38] ... DIST =     0.76 A
+     55 [A  45] L | L  [A  39] ... DIST =     0.77 A
+     56 [A  46] D | D  [A  40] ... DIST =     0.93 A
+     57 [A  47] E | E  [A  41] ... DIST =     1.11 A
+     58 [A  48] I | I  [A  42] ... DIST =     0.80 A
+     59 [A  49] K | K  [A  43] ... DIST =     0.79 A
+     60 [A  50] S | S  [A  44] ... DIST =     0.55 A
+     61 [A  51] V | V  [A  45] ... DIST =     0.25 A
+     62 [A  52] K | K  [A  46] ... DIST =     0.16 A
+     63 [A  53] A | A  [A  47] ... DIST =     0.30 A
+     64 [A  54] V | V  [A  48] ... DIST =     0.43 A
+     65 [A  55] V | V  [A  49] ... DIST =     0.50 A
+     66 [A  56] L | L  [A  50] ... DIST =     0.81 A
+     67 [A  57] S | S  [A  51] ... DIST =     1.68 A
+     68 [A  58] G | G  [A  52] ... DIST =     1.88 A
+     69 [A  59] Y | Y  [A  53] ... DIST =     1.11 A
+     70 [A  60] K | K  [A  54] ... DIST =     1.00 A
+     71 [A  61] S | S  [A  55] ... DIST =     0.49 A
+     72 [A  62] D | D  [A  56] ... DIST =     0.44 A
+     73 [A  63] I | I  [A  57] ... DIST =     0.25 A
+     74 [A  64] N | N  [A  58] ... DIST =     0.32 A
+     75 [A  65] V | V  [A  59] ... DIST =     0.25 A
+     76 [A  66] Q | Q  [A  60] ... DIST =     0.30 A
+     77 [A  67] V | V  [A  61] ... DIST =     0.34 A
+     78 [A  68] L | L  [A  62] ... DIST =     0.96 A
+     79 [A  69] V | V  [A  63] ... DIST =     0.97 A
+     80 [A  70] F | F  [A  64] ... DIST =     0.81 A
+     81 [A  71] Y | Y  [A  65] ... DIST =     0.86 A
+     82 [A  72] K | K  [A  66] ... DIST =     1.53 A
+     83 [A  73] D | D  [A  67] ... DIST =     1.14 A
+     84 [A  74] A | A  [A  68] ... DIST =     1.15 A
+     85 [A  75] L | L  [A  69] ... DIST =     0.75 A
+     86 [A  76] D | D  [A  70] ... DIST =     0.41 A
+     87 [A  77] I | I  [A  71] ... DIST =     0.46 A
+     88 [A  78] H | H  [A  72] ... DIST =     0.21 A
+     89 [A  79] N | N  [A  73] ... DIST =     0.41 A
+     90 [A  80] I | I  [A  74] ... DIST =     0.50 A
+     91 [A  81] Q | Q  [A  75] ... DIST =     0.41 A
+     92 [A  82] V | V  [A  76] ... DIST =     0.51 A
+     93 [A  83] K | K  [A  77] ... DIST =     0.69 A
+     94 [A  84] L | L  [A  78] ... DIST =     0.61 A
+     95 [A  85] V | V  [A  79] ... DIST =     0.94 A
+     96 [A  86] S | S  [A  80] ... DIST =     1.18 A
+     97 [A  87] N | N  [A  81] ... DIST =     2.24 A
+     98 [A  88] K | K  [A  82] ... DIST =     2.24 A
+     99 [A  89] R | R  [A  83] ... DIST =     0.99 A
+    100 [A  90] G | G  [A  84] ... DIST =     2.62 A
+    101 [A  91] F | F  [A  85] ... DIST =     0.89 A
+    102 [A  92] N | N  [A  86] ... DIST =     0.47 A
+    103 [A  93] Q | Q  [A  87] ... DIST =     0.24 A
+    104 [A  94] I | I  [A  88] ... DIST =     0.22 A
+    105 [A  95] D | D  [A  89] ... DIST =     0.21 A
+    106 [A  96] K | K  [A  90] ... DIST =     0.20 A
+    107 [A  97] H | H  [A  91] ... DIST =     0.19 A
+    108 [A  98] W | W  [A  92] ... DIST =     0.09 A
+    109 [A  99] L | L  [A  93] ... DIST =     0.20 A
+    110 [A 100] A | A  [A  94] ... DIST =     0.52 A
+    111 [A 101] H | H  [A  95] ... DIST =     0.49 A
+    112 [A 102] Y | Y  [A  96] ... DIST =     0.28 A
+    113 [A 103] Q | Q  [A  97] ... DIST =     0.34 A
+    114 [A 104] E | E  [A  98] ... DIST =     0.32 A
+    115 [A 105] M | M  [A  99] ... DIST =     0.44 A
+    116 [A 106] W | W  [A 100] ... DIST =     0.22 A
+    117 [A 107] K | K  [A 101] ... DIST =     0.14 A
+    118 [A 108] F | F  [A 102] ... DIST =     0.26 A
+    119 [A 109] D | D  [A 103] ... DIST =     0.43 A
+    120 [A 110] D | D  [A 104] ... DIST =     0.75 A
+    121 [A 111] N | N  [A 105] ... DIST =     0.82 A
+    122 [A 112] L | L  [A 106] ... DIST =     0.38 A
+    123 [A 113] L | L  [A 107] ... DIST =     0.48 A
+    124 [A 114] R | R  [A 108] ... DIST =     0.56 A
+    125 [A 115] I | I  [A 109] ... DIST =     0.63 A
+    126 [A 116] L | L  [A 110] ... DIST =     0.48 A
+    127 [A 117] R | R  [A 111] ... DIST =     0.65 A
+    128 [A 118] H | H  [A 112] ... DIST =     0.58 A
+    129 [A 119] F | F  [A 113] ... DIST =     0.49 A
+    130 [A 120] T | T  [A 114] ... DIST =     0.59 A
+    131 [A 121] G | G  [A 115] ... DIST =     0.54 A
+    132 [A 122] E | E  [A 116] ... DIST =     0.52 A
+    133 [A 123] L | L  [A 117] ... DIST =     0.39 A
+    134 [A 124] P | P  [A 118] ... DIST =     0.93 A
+    135 [A 125] P | P  [A 119] ... DIST =     0.65 A
+    136 [A 126] Y | Y  [A 120] ... DIST =     0.66 A
+    137 [A 127] H | H  [A 121] ... DIST =     1.20 A
+    138 [A 128] S | S  [A 122] ... DIST =     1.19 A
+    139 [A 129] N | N  [A 123] ... DIST =     1.47 A
+    140 [A 130] T | T  [A 124] ... DIST =     1.22 A
+    141 [A 131] K | K  [A 125] ... DIST =     1.40 A
+    142 [A 132] D | D  [A 126] ... DIST =     1.08 A
+    143 [A 133] K | K  [A 127] ... DIST =     0.46 A
+    144 [A 134] R | R  [A 128] ... DIST =     1.07 A
+    145 [A 135] R | R  [A 129] ... DIST =     0.58 A
+    146 [A 136] M | M  [A 130] ... DIST =     0.31 A
+    147 [A 137] F | F  [A 131] ... DIST =     0.55 A
+    148 [A 138] M | M  [A 132] ... DIST =     0.50 A
+    149 [A 139] T | T  [A 133] ... DIST =     0.61 A
+    150 [A 140] E | E  [A 134] ... DIST =     0.67 A
+    151 [A 141] F | F  [A 135] ... DIST =     0.47 A
+    152 [A 142] S | S  [A 136] ... DIST =     0.45 A
+    153 [A 143] Q | Q  [A 137] ... DIST =     0.62 A
+    154 [A 144] E | E  [A 138] ... DIST =     0.36 A
+    155 [A 145] E | E  [A 139] ... DIST =     0.43 A
+    156 [A 146] Q | Q  [A 140] ... DIST =     0.39 A
+    157 [A 147] N | N  [A 141] ... DIST =     0.29 A
+    158 [A 148] I | I  [A 142] ... DIST =     0.23 A
+    159 [A 149] V | V  [A 143] ... DIST =     0.17 A
+    160 [A 150] L | L  [A 144] ... DIST =     0.31 A
+    161 [A 151] N | N  [A 145] ... DIST =     0.40 A
+    162 [A 152] W | W  [A 146] ... DIST =     0.46 A
+    163 [A 153] L | L  [A 147] ... DIST =     0.47 A
+    164 [A 154] E | E  [A 148] ... DIST =     0.48 A
+    165 [A 155] K | K  [A 149] ... DIST =     0.46 A
+    166 [A 156] N | N  [A 150] ... DIST =     0.35 A
+    167 [A 157] R | R  [A 151] ... DIST =     0.35 A
+    168 [A 158] V | V  [A 152] ... DIST =     0.34 A
+    169 [A 159] L | L  [A 153] ... DIST =     0.37 A
+    170 [A 160] V | V  [A 154] ... DIST =     0.30 A
+    171 [A 161] L | L  [A 155] ... DIST =     0.20 A
+    172 [A 162] T | T  [A 156] ... DIST =     0.28 A
+    173 [A 163] D | D  [A 157] ... DIST =     0.30 A
+    174 [A 164] I | I  [A 158] ... DIST =     0.21 A
+    175 [A 165] L | L  [A 159] ... DIST =     0.26 A
+    176 [A 166] R | R  [A 160] ... DIST =     0.32 A
+    177 [A 167] G | G  [A 161] ... DIST =     0.33 A
+    178 [A 168] R | R  [A 162] ... DIST =     0.44 A
+    179 [A 169] G | G  [A 163] ... DIST =     0.75 A
+    180 [A 170] D | D  [A 164] ... DIST =     0.81 A
+    181 [A 171] F | F  [A 165] ... DIST =     0.50 A
+    182 [A 172] A | A  [A 166] ... DIST =     0.30 A
+    183 [A 173] A | A  [A 167] ... DIST =     0.21 A
+    184 [A 174] E | E  [A 168] ... DIST =     0.24 A
+    185 [A 175] W | W  [A 169] ... DIST =     0.51 A
+    186 [A 176] V | V  [A 170] ... DIST =     0.52 A
+    187 [A 177] L | L  [A 171] ... DIST =     0.21 A
+    188 [A 178] V | V  [A 172] ... DIST =     0.71 A
+    189 [A 179] A | A  [A 173] ... DIST =     0.83 A
+    190 [A 180] Q | Q  [A 174] ... DIST =     0.92 A
+    191    -    -   K  [A 175] ... DIST =        -  
+    192 [A 181] K . V  [A 176] ... DIST =     2.66 A
+    193    -    -   S  [A 177] ... DIST =        -  
+    194 [A 182] V   -     -    ... DIST =        -  
+    195 [A 183] S   -     -    ... DIST =        -  
+    196 [A 184] N | N  [A 178] ... DIST =     3.49 A
+    197 [A 185] N | N  [A 179] ... DIST =     2.55 A
+    198 [A 186] A | A  [A 180] ... DIST =     0.87 A
+    199 [A 187] R | R  [A 181] ... DIST =     1.76 A
+    200 [A 188] W | W  [A 182] ... DIST =     1.33 A
+    201 [A 189] I | I  [A 183] ... DIST =     0.59 A
+    202 [A 190] L | L  [A 184] ... DIST =     0.46 A
+    203 [A 191] R | R  [A 185] ... DIST =     0.38 A
+    204 [A 192] N | N  [A 186] ... DIST =     0.38 A
+    205 [A 193] I | I  [A 187] ... DIST =     0.29 A
+    206 [A 194] N | N  [A 188] ... DIST =     0.41 A
+    207 [A 195] E | E  [A 189] ... DIST =     0.37 A
+    208 [A 196] V | V  [A 190] ... DIST =     0.37 A
+    209 [A 197] L | L  [A 191] ... DIST =     0.23 A
+    210 [A 198] Q | Q  [A 192] ... DIST =     0.49 A
+    211 [A 199] H | H  [A 193] ... DIST =     0.40 A
+    212 [A 200] Y | Y  [A 194] ... DIST =     0.39 A
+    213 [A 201] G | G  [A 195] ... DIST =     0.58 A
+    214 [A 202] S | S  [A 196] ... DIST =     0.85 A
+    215 [A 203] G | G  [A 197] ... DIST =     0.90 A
+    216 [A 204] D | D  [A 198] ... DIST =     0.47 A
+    217 [A 205] I | I  [A 199] ... DIST =     0.65 A
+    218 [A 206] S | S  [A 200] ... DIST =     0.86 A
+    219 [A 207] L | L  [A 201] ... DIST =     0.97 A
+    220 [A 208] S | S  [A 202] ... DIST =     0.91 A
+    221 [A 209] P | P  [A 203] ... DIST =     1.48 A
+    222 [A 210] R | R  [A 204] ... DIST =     1.15 A
+    223 [A 211] G | G  [A 205] ... DIST =     0.77 A
+    224 [A 212] S | S  [A 206] ... DIST =     0.53 A
+    225 [A 213] I | I  [A 207] ... DIST =     0.44 A
+    226 [A 214] N | N  [A 208] ... DIST =     0.42 A
+    227 [A 215] F | F  [A 209] ... DIST =     0.33 A
+    228 [A 216] G | G  [A 210] ... DIST =     0.74 A
+    229 [A 217] R | R  [A 211] ... DIST =     0.22 A
+    230 [A 218] V | V  [A 212] ... DIST =     0.54 A
+    231 [A 219] T | T  [A 213] ... DIST =     0.36 A
+    232 [A 220] I | I  [A 214] ... DIST =     0.33 A
+    233 [A 221] Q | Q  [A 215] ... DIST =     0.28 A
+    234 [A 222] R | R  [A 216] ... DIST =     0.35 A
+    235 [A 223] K | K  [A 217] ... DIST =     0.23 A
+    236 [A 224] G | G  [A 218] ... DIST =     0.92 A
+    237 [A 225] G | G  [A 219] ... DIST =     2.23 A
+    238 [A 226] D | D  [A 220] ... DIST =     1.42 A
+    239 [A 227] N | N  [A 221] ... DIST =     1.40 A
+    240 [A 228] G | G  [A 222] ... DIST =     1.51 A
+    241 [A 229] R | R  [A 223] ... DIST =     0.49 A
+    242 [A 230] E | E  [A 224] ... DIST =     0.71 A
+    243 [A 231] T | T  [A 225] ... DIST =     0.60 A
+    244 [A 232] A | A  [A 226] ... DIST =     0.17 A
+    245 [A 233] N | N  [A 227] ... DIST =     0.34 A
+    246 [A 234] M | M  [A 228] ... DIST =     0.33 A
+    247 [A 235] L | L  [A 229] ... DIST =     0.25 A
+    248 [A 236] Q | Q  [A 230] ... DIST =     0.27 A
+    249 [A 237] F | F  [A 231] ... DIST =     0.13 A
+    250 [A 238] K | K  [A 232] ... DIST =     0.10 A
+    251 [A 239] I | I  [A 233] ... DIST =     0.09 A
+    252 [A 240] D | D  [A 234] ... DIST =     0.35 A
+    253 [A 241] P | P  [A 235] ... DIST =     0.38 A
+    254 [A 242] T | T  [A 236] ... DIST =     0.29 A
+    255 [A 243] E | E  [A 237] ... DIST =     0.26 A
+    256 [A 244] L | L  [A 238] ... DIST =     0.35 A
+    257 [A 245] F | F  [A 239] ... DIST =     0.73 A
+    258 [A 246] D | D  [A 240] ... DIST =     1.41 A
+    259 [A 247] I | I  [A 241] ... DIST =     1.30 A
+
+ Sequence 1 ----------MNLVELGSKTAKDGFKNEKDIADRFENWKENSEAQDWLVTMGHNLDEIKS
+ .=ALI |=ID                           ||||||||||||||||||||||||||||||||||
+ Sequence 2 GSKTAKDGFK----------------NEKDIADRFENWKENSEAQDWLVTMGHNLDEIKS
+
+ Sequence 1 VKAVVLSGYKSDINVQVLVFYKDALDIHNIQVKLVSNKRGFNQIDKHWLAHYQEMWKFDD
+ .=ALI |=ID ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+ Sequence 2 VKAVVLSGYKSDINVQVLVFYKDALDIHNIQVKLVSNKRGFNQIDKHWLAHYQEMWKFDD
+
+ Sequence 1 NLLRILRHFTGELPPYHSNTKDKRRMFMTEFSQEEQNIVLNWLEKNRVLVLTDILRGRGD
+ .=ALI |=ID ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+ Sequence 2 NLLRILRHFTGELPPYHSNTKDKRRMFMTEFSQEEQNIVLNWLEKNRVLVLTDILRGRGD
+
+ Sequence 1 FAAEWVLVAQ-K-VSNNARWILRNINEVLQHYGSGDISLSPRGSINFGRVTIQRKGGDNG
+ .=ALI |=ID |||||||||| .   |||||||||||||||||||||||||||||||||||||||||||||
+ Sequence 2 FAAEWVLVAQKVS--NNARWILRNINEVLQHYGSGDISLSPRGSINFGRVTIQRKGGDNG
+
+ Sequence 1 RETANMLQFKIDPTELFDI
+ .=ALI |=ID |||||||||||||||||||
+ Sequence 2 RETANMLQFKIDPTELFDI
+
+ Analysis of distance distribution:
+ Number of distances                    :        229
+ Average (A)                            :       0.64
+ Standard deviation (A)                 :       0.50
+ Variance (A**2)                        :       0.25
+ Minimum (A)                            :       0.09
+ Maximum (A)                            :       3.49
+ Range (A)                              :       3.40
+ Sum (A)                                :     147.47
+ Root-mean-square (A)                   :       0.81
+ Harmonic average (A)                   :       0.41
+ Median (A)                             :       0.49
+ 25th Percentile (A)                    :       0.33
+ 75th Percentile (A)                    :       0.81
+ Semi-interquartile range (A)           :       0.48
+ Trimean (A)                            :       0.53
+ 50% Trimmed mean (A)                   :       0.51
+ 10th Percentile (A)                    :       0.22
+ 90th Percentile (A)                    :       1.21
+ 20% Trimmed mean (A)                   :       0.56
+
+ Gap penalty            :       12.500
+ Raw alignment score    :  -5.2702E+02
+ L1 = Length sequence 1 :          247
+ L2 = Length sequence 2 :          241
+ Alignment length       :          259
+ NI = Nr of identities  :          228
+ L3 = Nr of matched res :          229
+ RMSD for those (A)     :        0.814
+ (Note: RMSD calculated after superimposing matched
+  residues; corresponding RT operator not stored)
+ ID = NI/min(L1,L2) (%) :        94.61
+ ID = NI/L3 (%)         :        99.56
+
+ Levitt-Gerstein statistics:
+ Nr of gaps       :            2
+ Similarity score :   4.4509E+03
+ Z-score          :   6.0616E+01
+ P (z > Z)        :   0.0000E+00
+ P (z > Z) is the probability of matching any two
+ random structures and finding a Z-score z which
+ is greater than the Z-score Z of the current pair.
+
+ TM-score statistics:
+ Ltarget          :          241
+ d0 (Ltarget) (A) :        5.739
+ TM-score         :        0.933
+
+ LSQMAN > STOP ... Toodle pip ... statement executed
+
+
+ *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** 
+
+ Version - 071128/9.7.8
+ Started - Thu Dec 20 09:51:49 2007
+ Stopped - Thu Dec 20 09:51:49 2007
+
+ CPU-time taken :
+ User    -      0.3 Sys    -      0.0 Total   -      0.3
+
+ *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** 
+
+ >>>>>>>>>>>>>> USF .... Uppsala Software Factory <<<<<<<<<<<<<<
+ >>>>>>>>>> This program: (c) 1992-2007, G J Kleywegt <<<<<<<<<<
+ >>>>>>>>>>>>>>>> E-mail: gerard@xray.bmc.uu.se <<<<<<<<<<<<<<<<
+ >>>>>>>>>>>>>>>>>> http://xray.bmc.uu.se/usf <<<<<<<<<<<<<<<<<<
+
+ *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** LSQMAN *** 
+

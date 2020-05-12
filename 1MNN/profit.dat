@@ -1,0 +1,33 @@
+Bound to unbound residue mapping
+--------------------------------
+Complex PDB: 1MNN
+Complex PDB: 1MN4
+--------------------------------
+
+DNA all residues:
+B1-B14
+B15-B28:B16-B29
+
+DNA interface residues:
+B2-B14:B2-B14
+B19-B26:B20-B27
+
+Protein all residues:
+A1-A107:A1-A107
+A108-A136:A114-A142
+A147-A288:A143-A284
+
+Protein interface residues:
+A18-A18:A18-A18
+A21-A28:A21-A28
+A30-A30:A30-A30
+A65-A65:A65-A65
+A77-A81:A77-A81
+A164-A165:A160-A161
+A167-A171:A163-A167
+A174-A174:A170-A170
+A216-A216:A212-A212
+A221-A223:A217-A219
+A281-A281:A277-A277
+A286-A286:A282-A282
+A288-A288:A284-A284

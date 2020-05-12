@@ -1,0 +1,15 @@
+atoms CA
+zone A17-A17:A17-A17
+zone A21-A25:A21-A25
+zone A27-A27:A27-A27
+zone A40-A40:A40-A40
+zone A52-A55:A52-A55
+zone A117-A122:A117-A122
+zone A125-A129:A125-A129
+zone A131-A131:A131-A131
+zone A144-A144:A144-A144
+zone A156-A158:A156-A158
+fit
+write interface_fit.pdb
+quit
+

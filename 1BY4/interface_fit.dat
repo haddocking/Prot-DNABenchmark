@@ -1,0 +1,28 @@
+atoms CA
+zone A13-A17:A14-A18
+zone A23-A26:A24-A27
+zone A28-A28:A29-A29
+zone A30-A31:A31-A32
+zone A34-A34:A35-A35
+zone A42-A42:A43-A43
+zone A52-A56:A53-A57
+zone A58-A58:A59-A59
+zone A61-A61:A62-A62
+zone A74-A76:A75-A77
+zone A79-A79:A80-A80
+zone B5-B5:B3-B3
+zone B13-B13:B11-B11
+zone B17-B21:B15-B19
+zone B26-B31:B24-B29
+zone B33-B34:B31-B32
+zone B37-B37:B35-B35
+zone B40-B40:B38-B38
+zone B54-B54:B52-B52
+zone B57-B58:B55-B56
+zone B61-B61:B59-B59
+zone B64-B64:B62-B62
+zone B77-B82:B75-B80
+fit
+write interface_fit.pdb
+quit
+

@@ -1,0 +1,38 @@
+atoms CA
+zone A36-A37
+zone A40-A40
+zone A67-A71
+zone A89-A94
+zone A103-A103
+zone A105-A105
+zone A107-A108
+zone A110-A112
+zone A118-A119
+zone A137-A137
+zone A139-A139
+zone A179-A187
+zone A218-A218
+zone A220-A223
+zone A225-A225
+zone A230-A230
+zone B280-B281
+zone B284-B284
+zone B310-B315
+zone B333-B338
+zone B347-B347
+zone B349-B349
+zone B351-B352
+zone B354-B356
+zone B362-B363
+zone B381-B381
+zone B383-B383
+zone B423-B423
+zone B425-B431
+zone B462-B462
+zone B464-B467
+zone B469-B469
+zone B474-B474
+fit
+write fitted.pdb
+quit
+

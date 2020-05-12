@@ -1,0 +1,14 @@
+atoms CA
+zone A7-A10:A7-A10
+zone A22-A22:A22-A22
+zone A24-A29:A24-A29
+zone A31-A31:A31-A31
+zone A33-A33:A33-A33
+zone A39-A40:A39-A40
+zone A42-A42:A42-A42
+zone A44-A46:A44-A46
+zone A48-A48:A48-A48
+fit
+write interface_fit.pdb
+quit
+

@@ -1,0 +1,13 @@
+atoms CA
+zone A123-A128
+zone A130-A130
+zone A170-A170
+zone A173-A175
+zone A178-A178
+zone A210-A210
+zone A212-A220
+zone A237-A240
+fit
+write interface_fit.pdb
+quit
+

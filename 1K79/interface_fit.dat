@@ -1,0 +1,17 @@
+atoms CA
+zone A2-A6:A39-A43
+zone A43-A43:A80-A80
+zone A47-A47:A84-A84
+zone A49-A49:A86-A86
+zone A51-A52:A88-A89
+zone A54-A54:A91-A91
+zone A56-A57:A93-A94
+zone A59-A60:A96-A97
+zone A62-A65:A99-A102
+zone A67-A67:A104-A104
+zone A72-A72:A109-A109
+zone A76-A80:A113-A117
+fit
+write interface_fit.pdb
+quit
+

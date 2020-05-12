@@ -1,0 +1,21 @@
+atoms CA
+zone A9-A9
+zone A12-A13
+zone A18-A20
+zone A27-A32
+zone A34-A37
+zone A40-A49
+zone A52-A52
+zone A58-A59
+zone A62-A63
+zone C12-C12
+zone C17-C20
+zone C28-C32
+zone C34-C37
+zone C40-C49
+zone C58-C59
+zone C62-C63
+fit
+write interface_fit.pdb
+quit
+

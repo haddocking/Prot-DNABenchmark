@@ -1,0 +1,31 @@
+Bound to unbound residue mapping
+--------------------------------
+Complex PDB: 2IRF
+Complex PDB: 1IRG
+--------------------------------
+
+DNA all residues:
+B1-B24
+
+DNA interface residues:
+B2-B7:B2-B7
+B15-B19:B15-B19
+B24-B24:B24-B24
+
+Protein all residues:
+A1-A109:A4-A112
+
+Protein interface residues:
+A1-A5:A4-A8
+A34-A38:A37-A41
+A54-A54:A57-A57
+A58-A58:A61-A61
+A60-A60:A63-A63
+A70-A71:A73-A74
+A74-A76:A77-A79
+A78-A80:A81-A83
+A82-A84:A85-A87
+A89-A89:A92-A92
+A91-A91:A94-A94
+A96-A97:A99-A100
+A103-A103:A106-A106

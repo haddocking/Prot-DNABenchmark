@@ -1,0 +1,22 @@
+atoms CA
+zone A3-A7
+zone A9-A9
+zone A29-A29
+zone A31-A32
+zone A35-A35
+zone A50-A50
+zone A53-A53
+zone A73-A73
+zone A75-A76
+zone A126-A130:A118-A122
+zone A132-A132:A124-A124
+zone A152-A152:A144-A144
+zone A154-A155:A146-A147
+zone A158-A158:A150-A150
+zone A172-A173:A164-A165
+zone A176-A176:A168-A168
+zone A198-A199:A190-A191
+fit
+write fitted.pdb
+quit
+

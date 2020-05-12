@@ -1,0 +1,13 @@
+atoms CA
+zone A19-A19:A19-A19
+zone A21-A21:A21-A21
+zone A23-A25:A23-A25
+zone A76-A76:A76-A76
+zone A80-A80:A80-A80
+zone A82-A85:A82-A85
+zone A108-A108:A108-A108
+zone A110-A112:A110-A112
+fit
+write interface_fit.pdb
+quit
+

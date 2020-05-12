@@ -1,0 +1,14 @@
+atoms CA
+zone A44-A45:A48-A49
+zone A48-A49:A52-A53
+zone A72-A72:A76-A76
+zone A76-A78:A80-A82
+zone A80-A80:A84-A84
+zone A87-A90:A91-A94
+zone A92-A97:A96-A101
+zone A121-A122:A125-A126
+zone A125-A126:A129-A130
+fit
+write fitted.pdb
+quit
+

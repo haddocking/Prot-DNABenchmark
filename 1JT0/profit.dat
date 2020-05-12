@@ -1,0 +1,48 @@
+Bound to unbound residue mapping
+--------------------------------
+Complex PDB: 1JT0
+Complex PDB: 1JUS
+Complex PDB: 1JUS
+--------------------------------
+
+DNA all residues:
+C1-C56
+
+DNA interface residues:
+C9-C28:C9-C28
+
+Protein all residues:
+A1-A186
+A189-A374:A187-A372
+
+Protein interface residues:
+A1-A3:A1-A3
+A20-A20:A20-A20
+A22-A25:A22-A25
+A32-A37:A32-A37
+A39-A41:A39-A41
+A43-A46:A43-A46
+A190-A190:A188-A188
+A208-A208:A206-A206
+A210-A213:A208-A211
+A220-A225:A218-A223
+A227-A229:A225-A227
+A231-A234:A229-A232
+
+Protein all residues:
+B1-B186
+B189-B372:B187-B370
+
+Protein interface residues:
+B1-B3:B1-B3
+B20-B20:B20-B20
+B22-B25:B22-B25
+B32-B37:B32-B37
+B39-B41:B39-B41
+B43-B46:B43-B46
+B189-B191:B187-B189
+B208-B208:B206-B206
+B210-B213:B208-B211
+B220-B225:B218-B223
+B227-B229:B225-B227
+B231-B234:B229-B232

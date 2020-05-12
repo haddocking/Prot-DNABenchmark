@@ -1,0 +1,16 @@
+atoms CA
+zone A62-A67
+zone A71-A71
+zone A75-A77
+zone A86-A89
+zone A123-A123
+zone A133-A133
+zone A138-A138
+zone A165-A167
+zone A186-A187
+zone A189-A192
+zone A194-A195
+fit
+write fitted.pdb
+quit
+

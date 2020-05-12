@@ -1,0 +1,39 @@
+Bound to unbound residue mapping
+--------------------------------
+Complex PDB: 1W0T
+Complex PDB: 1BA5
+Complex PDB: 1BA5
+--------------------------------
+
+DNA all residues:
+C1-C19
+C20-C38:C21-C39
+
+DNA interface residues:
+C3-C15:C3-C15
+C17-C19:C17-C19
+C23-C33:C24-C34
+
+Protein all residues:
+A1-A52:A2-A53
+
+Protein interface residues:
+A1-A5:A2-A6
+A23-A27:A24-A28
+A37-A37:A38-A38
+A39-A41:A40-A42
+A43-A45:A44-A46
+A47-A48:A48-A49
+A51-A52:A52-A53
+
+Protein all residues:
+B1-B52:B2-B53
+
+Protein interface residues:
+B1-B5:B2-B6
+B23-B27:B24-B28
+B37-B37:B38-B38
+B39-B41:B40-B42
+B43-B45:B44-B46
+B47-B48:B48-B49
+B51-B52:B52-B53

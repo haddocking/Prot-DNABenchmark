@@ -1,0 +1,24 @@
+atoms CA
+zone A14-A15
+zone A17-A18
+zone A20-A22
+zone A24-A25
+zone A32-A33
+zone A36-A36
+zone A38-A38
+zone A43-A43
+zone A51-A57
+zone A60-A60
+zone A70-A70
+zone A74-A74
+zone A81-A86
+zone A88-A90
+zone A116-A116
+zone A120-A120
+zone A124-A124
+zone A127-A129
+zone A132-A132
+fit
+write fitted.pdb
+quit
+

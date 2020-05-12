@@ -1,0 +1,31 @@
+Bound to unbound residue mapping
+--------------------------------
+Complex PDB: 1K79
+Complex PDB: 1GVJ
+--------------------------------
+
+DNA all residues:
+B1-B15
+B16-B30:B17-B31
+
+DNA interface residues:
+B4-B11:B4-B11
+B13-B15:B13-B15
+B18-B24:B19-B25
+
+Protein all residues:
+A1-A104:A38-A141
+
+Protein interface residues:
+A2-A6:A39-A43
+A43-A43:A80-A80
+A47-A47:A84-A84
+A49-A49:A86-A86
+A51-A52:A88-A89
+A54-A54:A91-A91
+A56-A57:A93-A94
+A59-A60:A96-A97
+A62-A65:A99-A102
+A67-A67:A104-A104
+A72-A72:A109-A109
+A76-A80:A113-A117

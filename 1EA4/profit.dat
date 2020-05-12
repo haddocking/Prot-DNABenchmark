@@ -1,0 +1,47 @@
+Bound to unbound residue mapping
+--------------------------------
+Complex PDB: 1EA4
+Complex PDB: 2CPG
+Complex PDB: 2CPG
+--------------------------------
+
+DNA all residues:
+C3-C22:C3-C22
+C24-C43:C25-C44
+
+DNA interface residues:
+C4-C10:C4-C10
+C14-C20:C14-C20
+C24-C30:C25-C31
+C33-C39:C34-C40
+
+Protein all residues:
+A1-A87
+
+Protein interface residues:
+A2-A2:A2-A2
+A4-A8:A4-A8
+A22-A30:A22-A30
+A33-A34:A33-A34
+A37-A37:A37-A37
+A41-A41:A41-A41
+A45-A45:A45-A45
+A47-A51:A47-A51
+A53-A53:A53-A53
+A55-A56:A55-A56
+A70-A72:A70-A72
+
+Protein all residues:
+B1-B43
+B46-B87:B44-B85
+
+Protein interface residues:
+B1-B2:B1-B2
+B4-B8:B4-B8
+B22-B30:B22-B30
+B33-B34:B33-B34
+B37-B37:B37-B37
+B47-B53:B45-B51
+B55-B55:B53-B53
+B57-B58:B55-B56
+B72-B74:B70-B72
