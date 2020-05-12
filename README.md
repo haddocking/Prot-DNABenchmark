@@ -44,31 +44,31 @@ The benchmark in organized in directory structure, containing one directory per 
 
 Each directory contains the following files:
 
-	* _X.pdb_ and _Y.pdb_ :	The unmodified RCSB PDB files for the structure of the complex and the structure of the unbound protein
+* _X.pdb_ and _Y.pdb_ :	The unmodified RCSB PDB files for the structure of the complex and the structure of the unbound protein
 								
-	* _X_bound-prot(x).pdb_ : The processed PDB file of the bound protein (extracted from the complex) 
+* _X_bound-prot(x).pdb_ : The processed PDB file of the bound protein (extracted from the complex) 
 
-	* _X_bound-DNA.pdb_ : The processed PDB file of the bound DNA (extracted from the complex)
+* _X_bound-DNA.pdb_ : The processed PDB file of the bound DNA (extracted from the complex)
 								
-	* _Y_unbound-prot(x).pdb_ : Structure files of the unbound protein, processed. In case of an NMR ensemble the file is separated into its individual models.
+* _Y_unbound-prot(x).pdb_ : Structure files of the unbound protein, processed. In case of an NMR ensemble the file is separated into its individual models.
 								
-	* _DNA_unbound.pdb_ : 3DNA generated unbound canonical BDNA representation.
+* _DNA_unbound.pdb_ : 3DNA generated unbound canonical BDNA representation.
 
-	* _X_complex.pdb_ :	PDB file of the bound complex reconstructed from the individual processed bound structures.
+* _X_complex.pdb_ :	PDB file of the bound complex reconstructed from the individual processed bound structures.
 								
-	* _X_ubcomplex.pdb_ : Structure file of the complex reconstructed from the unbound processed components after superimposition using all CA and P atoms.
+* _X_ubcomplex.pdb_ : Structure file of the complex reconstructed from the unbound processed components after superimposition using all CA and P atoms.
 								
-	* _interface_fit.dat_ : Data file containing the residue zones for all unbound components that have CA atoms at the interface
+* _interface_fit.dat_ : Data file containing the residue zones for all unbound components that have CA atoms at the interface
 
-	* _interface_fit.pdb_ : PDB file of the unbound protein after superimposition on the bound structure using CA atoms.
+* _interface_fit.pdb_ : PDB file of the unbound protein after superimposition on the bound structure using CA atoms.
 
-	* _contacts.dat_ : Text file listing all intermolecular contacts in the bound complex.
+* _contacts.dat_ : Text file listing all intermolecular contacts in the bound complex.
 
-	* _contacts_ub.dat_ : Text file listing all intermolecular contacts in the bound complex (unbound re-numbered).
+* _contacts_ub.dat_ : Text file listing all intermolecular contacts in the bound complex (unbound re-numbered).
 								
-	* _alignment.dat_ : Text file of a Needleman-Wunsch sequence alignment between bound and unbound protein sequences.
+* _alignment.dat_ : Text file of a Needleman-Wunsch sequence alignment between bound and unbound protein sequences.
 							
-	* _profit.dat_ : Text file containing ProFit structure fitting data for automatic structure fitting using ProFit
+* _profit.dat_ : Text file containing ProFit structure fitting data for automatic structure fitting using ProFit
 
 
 **Note** that the processed PDB files have been modified to avoid any overlap in residue numbering (e.g. shifting the numnber of the second DNA strand). Also the DNA nomenclature follows a three letter code (ADE, CYT, GUA, THY) compatible with HADDOCK version 2.2.  For use in HADDOCK2.4, the base names must be reverted to a single letter code (A,C,G,T).
