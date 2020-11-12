@@ -1,7 +1,8 @@
 ## Prot-DNA Docking Benchmark
 
-![PROTDNABenchmark](docs/Protein-DNA-benchmark.png)
+[![DOI](https://zenodo.org/badge/263383097.svg)](https://zenodo.org/badge/latestdoi/263383097)
 
+![PROTDNABenchmark](docs/Protein-DNA-benchmark.png)
 
 ### Introduction
 
