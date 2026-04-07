@@ -1,0 +1,576 @@
+!
+! HADDOCK unambiquous restraints for molecule A
+!
+!
+assign ( resid 10 and segid A)
+       (
+        ( resid 2 and segid C and (name C1' or name O4' or name C4' or name C3' or name C2' or name O3' or name C5' or name O5' or name P or name O1P or name O2P or name H5' or name H5'' or name H4' or name H3' or name H2' or name H2'' or name H1'))
+       )  2.0 2.0 0.0
+!
+assign ( resid 11 and segid A)
+       (
+        ( resid 2 and segid C)
+       )  2.0 2.0 0.0
+!
+assign ( resid 12 and segid A)
+       (
+        ( resid 2 and segid C)
+     or
+        ( resid 3 and segid C)
+       )  2.0 2.0 0.0
+!
+assign ( resid 13 and segid A)
+       (
+        ( resid 3 and segid C)
+     or
+        ( resid 2 and segid C and (name C1' or name O4' or name C4' or name C3' or name C2' or name O3' or name C5' or name O5' or name P or name O1P or name O2P or name H5' or name H5'' or name H4' or name H3' or name H2' or name H2'' or name H1'))
+       )  2.0 2.0 0.0
+!
+assign ( resid 20 and segid A)
+       (
+        ( resid 35 and segid C)
+       )  2.0 2.0 0.0
+!
+assign ( resid 21 and segid A)
+       (
+        ( resid 34 and segid C)
+     or
+        ( resid 35 and segid C)
+       )  2.0 2.0 0.0
+!
+assign ( resid 23 and segid A)
+       (
+        ( resid 3 and segid C)
+     or
+        ( resid 4 and segid C and (name H1 or name H21 or name H22 or name N3 or name N7 or name O6 or name C2 or name C4 or name C5 or name C6 or name C8))
+       )  2.0 2.0 0.0
+!
+assign ( resid 24 and segid A)
+       (
+        ( resid 34 and segid C and (name H1 or name H21 or name H22 or name N3 or name N7 or name O6 or name C2 or name C4 or name C5 or name C6 or name C8))
+     or
+        ( resid 35 and segid C and (name H3 or name O2 or name O4 or name C2 or name C4 or name C5 or name C6 or name C7))
+     or
+        ( resid 6 and segid C and (name H61 or name H62 or name N1 or name N3 or name N7 or name C2 or name C4 or name C5 or name C6 or name C8))
+       )  2.0 2.0 0.0
+!
+assign ( resid 27 and segid A)
+       (
+        ( resid 4 and segid C)
+     or
+        ( resid 5 and segid C and (name C1' or name O4' or name C4' or name C3' or name C2' or name O3' or name C5' or name O5' or name P or name O1P or name O2P or name H5' or name H5'' or name H4' or name H3' or name H2' or name H2'' or name H1'))
+       )  2.0 2.0 0.0
+!
+assign ( resid 28 and segid A)
+       (
+        ( resid 33 and segid C and (name H3 or name O2 or name O4 or name C2 or name C4 or name C5 or name C6 or name C7))
+     or
+        ( resid 34 and segid C and (name H1 or name H21 or name H22 or name N3 or name N7 or name O6 or name C2 or name C4 or name C5 or name C6 or name C8))
+     or
+        ( resid 6 and segid C and (name H61 or name H62 or name N1 or name N3 or name N7 or name C2 or name C4 or name C5 or name C6 or name C8))
+     or
+        ( resid 7 and segid C and (name H41 or name H42 or name N3 or name O2 or name C2 or name C4 or name C5 or name C6))
+       )  2.0 2.0 0.0
+!
+assign ( resid 34 and segid A)
+       (
+        ( resid 32 and segid C)
+     or
+        ( resid 33 and segid C and (name C1' or name O4' or name C4' or name C3' or name C2' or name O3' or name C5' or name O5' or name P or name O1P or name O2P or name H5' or name H5'' or name H4' or name H3' or name H2' or name H2'' or name H1'))
+       )  2.0 2.0 0.0
+!
+assign ( resid 35 and segid A)
+       (
+        ( resid 32 and segid C and (name C1' or name O4' or name C4' or name C3' or name C2' or name O3' or name C5' or name O5' or name P or name O1P or name O2P or name H5' or name H5'' or name H4' or name H3' or name H2' or name H2'' or name H1'))
+     or
+        ( resid 49 and segid B)
+       )  2.0 2.0 0.0
+!
+assign ( resid 36 and segid A)
+       (
+        ( resid 32 and segid C and (name C1' or name O4' or name C4' or name C3' or name C2' or name O3' or name C5' or name O5' or name P or name O1P or name O2P or name H5' or name H5'' or name H4' or name H3' or name H2' or name H2'' or name H1'))
+     or
+        ( resid 33 and segid C)
+       )  2.0 2.0 0.0
+!
+assign ( resid 37 and segid A)
+       (
+        ( resid 50 and segid B)
+     or
+        ( resid 53 and segid B)
+       )  2.0 2.0 0.0
+!
+assign ( resid 38 and segid A)
+       (
+        ( resid 50 and segid B)
+     or
+        ( resid 53 and segid B)
+       )  2.0 2.0 0.0
+!
+assign ( resid 39 and segid A)
+       (
+        ( resid 50 and segid B)
+     or
+        ( resid 53 and segid B)
+     or
+        ( resid 44 and segid B)
+     or
+        ( resid 45 and segid B)
+     or
+        ( resid 43 and segid B)
+       )  2.0 2.0 0.0
+!
+assign ( resid 40 and segid A)
+       (
+        ( resid 44 and segid B)
+       )  2.0 2.0 0.0
+!
+assign ( resid 41 and segid A)
+       (
+        ( resid 41 and segid B)
+     or
+        ( resid 43 and segid B)
+       )  2.0 2.0 0.0
+!
+assign ( resid 43 and segid A)
+       (
+        ( resid 39 and segid B)
+     or
+        ( resid 41 and segid B)
+       )  2.0 2.0 0.0
+!
+assign ( resid 44 and segid A)
+       (
+        ( resid 39 and segid B)
+     or
+        ( resid 40 and segid B)
+       )  2.0 2.0 0.0
+!
+assign ( resid 45 and segid A)
+       (
+        ( resid 39 and segid B)
+     or
+        ( resid 38 and segid B)
+     or
+        ( resid 40 and segid B)
+       )  2.0 2.0 0.0
+!
+assign ( resid 49 and segid A)
+       (
+        ( resid 37 and segid B)
+       )  2.0 2.0 0.0
+!
+assign ( resid 50 and segid A)
+       (
+        ( resid 39 and segid B)
+     or
+        ( resid 37 and segid B)
+     or
+        ( resid 38 and segid B)
+       )  2.0 2.0 0.0
+!
+assign ( resid 52 and segid A)
+       (
+        ( resid 33 and segid C and (name C1' or name O4' or name C4' or name C3' or name C2' or name O3' or name C5' or name O5' or name P or name O1P or name O2P or name H5' or name H5'' or name H4' or name H3' or name H2' or name H2'' or name H1'))
+     or
+        ( resid 34 and segid C)
+     or
+        ( resid 10 and segid C and (name C1' or name O4' or name C4' or name C3' or name C2' or name O3' or name C5' or name O5' or name P or name O1P or name O2P or name H5' or name H5'' or name H4' or name H3' or name H2' or name H2'' or name H1'))
+       )  2.0 2.0 0.0
+!
+assign ( resid 53 and segid A)
+       (
+        ( resid 53 and segid B)
+     or
+        ( resid 39 and segid B)
+     or
+        ( resid 37 and segid B)
+     or
+        ( resid 55 and segid B)
+     or
+        ( resid 38 and segid B)
+     or
+        ( resid 54 and segid B)
+       )  2.0 2.0 0.0
+!
+assign ( resid 71 and segid A)
+       (
+        ( resid 3 and segid C and (name C1' or name O4' or name C4' or name C3' or name C2' or name O3' or name C5' or name O5' or name P or name O1P or name O2P or name H5' or name H5'' or name H4' or name H3' or name H2' or name H2'' or name H1'))
+       )  2.0 2.0 0.0
+!
+!
+! HADDOCK unambiquous restraints for molecule C
+!
+!
+assign ( resid 32 and segid C)
+       (
+        ( resid 34 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 32 and segid C and (name C1' or name O4' or name C4' or name C3' or name C2' or name O3' or name C5' or name O5' or name P or name O1P or name O2P or name H5' or name H5'' or name H4' or name H3' or name H2' or name H2'' or name H1'))
+       (
+        ( resid 35 and segid A)
+     or
+        ( resid 36 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 33 and segid C)
+       (
+        ( resid 36 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 33 and segid C and (name H3 or name O2 or name O4 or name C2 or name C4 or name C5 or name C6 or name C7))
+       (
+        ( resid 28 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 33 and segid C and (name C1' or name O4' or name C4' or name C3' or name C2' or name O3' or name C5' or name O5' or name P or name O1P or name O2P or name H5' or name H5'' or name H4' or name H3' or name H2' or name H2'' or name H1'))
+       (
+        ( resid 34 and segid A)
+     or
+        ( resid 52 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 2 and segid C)
+       (
+        ( resid 11 and segid A)
+     or
+        ( resid 12 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 2 and segid C and (name C1' or name O4' or name C4' or name C3' or name C2' or name O3' or name C5' or name O5' or name P or name O1P or name O2P or name H5' or name H5'' or name H4' or name H3' or name H2' or name H2'' or name H1'))
+       (
+        ( resid 10 and segid A)
+     or
+        ( resid 13 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 3 and segid C)
+       (
+        ( resid 12 and segid A)
+     or
+        ( resid 13 and segid A)
+     or
+        ( resid 23 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 3 and segid C and (name C1' or name O4' or name C4' or name C3' or name C2' or name O3' or name C5' or name O5' or name P or name O1P or name O2P or name H5' or name H5'' or name H4' or name H3' or name H2' or name H2'' or name H1'))
+       (
+        ( resid 71 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 4 and segid C)
+       (
+        ( resid 27 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 4 and segid C and (name H1 or name H21 or name H22 or name N3 or name N7 or name O6 or name C2 or name C4 or name C5 or name C6 or name C8))
+       (
+        ( resid 23 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 5 and segid C and (name C1' or name O4' or name C4' or name C3' or name C2' or name O3' or name C5' or name O5' or name P or name O1P or name O2P or name H5' or name H5'' or name H4' or name H3' or name H2' or name H2'' or name H1'))
+       (
+        ( resid 27 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 6 and segid C and (name H61 or name H62 or name N1 or name N3 or name N7 or name C2 or name C4 or name C5 or name C6 or name C8))
+       (
+        ( resid 24 and segid A)
+     or
+        ( resid 28 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 7 and segid C and (name H41 or name H42 or name N3 or name O2 or name C2 or name C4 or name C5 or name C6))
+       (
+        ( resid 28 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 10 and segid C and (name C1' or name O4' or name C4' or name C3' or name C2' or name O3' or name C5' or name O5' or name P or name O1P or name O2P or name H5' or name H5'' or name H4' or name H3' or name H2' or name H2'' or name H1'))
+       (
+        ( resid 52 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 11 and segid C and (name C1' or name O4' or name C4' or name C3' or name C2' or name O3' or name C5' or name O5' or name P or name O1P or name O2P or name H5' or name H5'' or name H4' or name H3' or name H2' or name H2'' or name H1'))
+       (
+        ( resid 28 and segid B)
+       )  2.0 2.0 0.0
+!
+assign ( resid 12 and segid C)
+       (
+        ( resid 28 and segid B)
+       )  2.0 2.0 0.0
+!
+assign ( resid 12 and segid C and (name C1' or name O4' or name C4' or name C3' or name C2' or name O3' or name C5' or name O5' or name P or name O1P or name O2P or name H5' or name H5'' or name H4' or name H3' or name H2' or name H2'' or name H1'))
+       (
+        ( resid 52 and segid B)
+       )  2.0 2.0 0.0
+!
+assign ( resid 13 and segid C)
+       (
+        ( resid 21 and segid B)
+     or
+        ( resid 52 and segid B)
+       )  2.0 2.0 0.0
+!
+assign ( resid 13 and segid C and (name H3 or name O2 or name O4 or name C2 or name C4 or name C5 or name C6 or name C7))
+       (
+        ( resid 28 and segid B)
+     or
+        ( resid 24 and segid B)
+       )  2.0 2.0 0.0
+!
+assign ( resid 13 and segid C and (name C1' or name O4' or name C4' or name C3' or name C2' or name O3' or name C5' or name O5' or name P or name O1P or name O2P or name H5' or name H5'' or name H4' or name H3' or name H2' or name H2'' or name H1'))
+       (
+        ( resid 48 and segid B)
+       )  2.0 2.0 0.0
+!
+assign ( resid 14 and segid C and (name C1' or name O4' or name C4' or name C3' or name C2' or name O3' or name C5' or name O5' or name P or name O1P or name O2P or name H5' or name H5'' or name H4' or name H3' or name H2' or name H2'' or name H1'))
+       (
+        ( resid 21 and segid B)
+       )  2.0 2.0 0.0
+!
+assign ( resid 34 and segid C)
+       (
+        ( resid 21 and segid A)
+     or
+        ( resid 52 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 34 and segid C and (name H1 or name H21 or name H22 or name N3 or name N7 or name O6 or name C2 or name C4 or name C5 or name C6 or name C8))
+       (
+        ( resid 24 and segid A)
+     or
+        ( resid 28 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 35 and segid C)
+       (
+        ( resid 20 and segid A)
+     or
+        ( resid 21 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 35 and segid C and (name H3 or name O2 or name O4 or name C2 or name C4 or name C5 or name C6 or name C7))
+       (
+        ( resid 24 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 22 and segid C)
+       (
+        ( resid 11 and segid B)
+     or
+        ( resid 12 and segid B)
+       )  2.0 2.0 0.0
+!
+assign ( resid 22 and segid C and (name C1' or name O4' or name C4' or name C3' or name C2' or name O3' or name C5' or name O5' or name P or name O1P or name O2P or name H5' or name H5'' or name H4' or name H3' or name H2' or name H2'' or name H1'))
+       (
+        ( resid 10 and segid B)
+       )  2.0 2.0 0.0
+!
+assign ( resid 23 and segid C)
+       (
+        ( resid 12 and segid B)
+     or
+        ( resid 23 and segid B)
+       )  2.0 2.0 0.0
+!
+assign ( resid 24 and segid C)
+       (
+        ( resid 27 and segid B)
+       )  2.0 2.0 0.0
+!
+assign ( resid 24 and segid C and (name H1 or name H21 or name H22 or name N3 or name N7 or name O6 or name C2 or name C4 or name C5 or name C6 or name C8))
+       (
+        ( resid 23 and segid B)
+       )  2.0 2.0 0.0
+!
+assign ( resid 24 and segid C and (name C1' or name O4' or name C4' or name C3' or name C2' or name O3' or name C5' or name O5' or name P or name O1P or name O2P or name H5' or name H5'' or name H4' or name H3' or name H2' or name H2'' or name H1'))
+       (
+        ( resid 69 and segid B)
+       )  2.0 2.0 0.0
+!
+assign ( resid 25 and segid C and (name C1' or name O4' or name C4' or name C3' or name C2' or name O3' or name C5' or name O5' or name P or name O1P or name O2P or name H5' or name H5'' or name H4' or name H3' or name H2' or name H2'' or name H1'))
+       (
+        ( resid 27 and segid B)
+     or
+        ( resid 31 and segid B)
+       )  2.0 2.0 0.0
+!
+!
+! HADDOCK unambiquous restraints for molecule B
+!
+!
+assign ( resid 10 and segid B)
+       (
+        ( resid 22 and segid C and (name C1' or name O4' or name C4' or name C3' or name C2' or name O3' or name C5' or name O5' or name P or name O1P or name O2P or name H5' or name H5'' or name H4' or name H3' or name H2' or name H2'' or name H1'))
+       )  2.0 2.0 0.0
+!
+assign ( resid 11 and segid B)
+       (
+        ( resid 22 and segid C)
+       )  2.0 2.0 0.0
+!
+assign ( resid 12 and segid B)
+       (
+        ( resid 22 and segid C)
+     or
+        ( resid 23 and segid C)
+       )  2.0 2.0 0.0
+!
+assign ( resid 21 and segid B)
+       (
+        ( resid 13 and segid C)
+     or
+        ( resid 14 and segid C and (name C1' or name O4' or name C4' or name C3' or name C2' or name O3' or name C5' or name O5' or name P or name O1P or name O2P or name H5' or name H5'' or name H4' or name H3' or name H2' or name H2'' or name H1'))
+       )  2.0 2.0 0.0
+!
+assign ( resid 23 and segid B)
+       (
+        ( resid 23 and segid C)
+     or
+        ( resid 24 and segid C and (name H1 or name H21 or name H22 or name N3 or name N7 or name O6 or name C2 or name C4 or name C5 or name C6 or name C8))
+       )  2.0 2.0 0.0
+!
+assign ( resid 24 and segid B)
+       (
+        ( resid 13 and segid C and (name H3 or name O2 or name O4 or name C2 or name C4 or name C5 or name C6 or name C7))
+       )  2.0 2.0 0.0
+!
+assign ( resid 27 and segid B)
+       (
+        ( resid 24 and segid C)
+     or
+        ( resid 25 and segid C and (name C1' or name O4' or name C4' or name C3' or name C2' or name O3' or name C5' or name O5' or name P or name O1P or name O2P or name H5' or name H5'' or name H4' or name H3' or name H2' or name H2'' or name H1'))
+       )  2.0 2.0 0.0
+!
+assign ( resid 28 and segid B)
+       (
+        ( resid 11 and segid C and (name C1' or name O4' or name C4' or name C3' or name C2' or name O3' or name C5' or name O5' or name P or name O1P or name O2P or name H5' or name H5'' or name H4' or name H3' or name H2' or name H2'' or name H1'))
+     or
+        ( resid 12 and segid C)
+     or
+        ( resid 13 and segid C and (name H3 or name O2 or name O4 or name C2 or name C4 or name C5 or name C6 or name C7))
+       )  2.0 2.0 0.0
+!
+assign ( resid 31 and segid B)
+       (
+        ( resid 25 and segid C and (name C1' or name O4' or name C4' or name C3' or name C2' or name O3' or name C5' or name O5' or name P or name O1P or name O2P or name H5' or name H5'' or name H4' or name H3' or name H2' or name H2'' or name H1'))
+       )  2.0 2.0 0.0
+!
+assign ( resid 37 and segid B)
+       (
+        ( resid 49 and segid A)
+     or
+        ( resid 50 and segid A)
+     or
+        ( resid 53 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 38 and segid B)
+       (
+        ( resid 45 and segid A)
+     or
+        ( resid 50 and segid A)
+     or
+        ( resid 53 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 39 and segid B)
+       (
+        ( resid 43 and segid A)
+     or
+        ( resid 44 and segid A)
+     or
+        ( resid 45 and segid A)
+     or
+        ( resid 50 and segid A)
+     or
+        ( resid 53 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 40 and segid B)
+       (
+        ( resid 44 and segid A)
+     or
+        ( resid 45 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 41 and segid B)
+       (
+        ( resid 41 and segid A)
+     or
+        ( resid 43 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 43 and segid B)
+       (
+        ( resid 39 and segid A)
+     or
+        ( resid 41 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 44 and segid B)
+       (
+        ( resid 39 and segid A)
+     or
+        ( resid 40 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 45 and segid B)
+       (
+        ( resid 39 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 48 and segid B)
+       (
+        ( resid 13 and segid C and (name C1' or name O4' or name C4' or name C3' or name C2' or name O3' or name C5' or name O5' or name P or name O1P or name O2P or name H5' or name H5'' or name H4' or name H3' or name H2' or name H2'' or name H1'))
+       )  2.0 2.0 0.0
+!
+assign ( resid 49 and segid B)
+       (
+        ( resid 35 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 50 and segid B)
+       (
+        ( resid 37 and segid A)
+     or
+        ( resid 38 and segid A)
+     or
+        ( resid 39 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 52 and segid B)
+       (
+        ( resid 12 and segid C and (name C1' or name O4' or name C4' or name C3' or name C2' or name O3' or name C5' or name O5' or name P or name O1P or name O2P or name H5' or name H5'' or name H4' or name H3' or name H2' or name H2'' or name H1'))
+     or
+        ( resid 13 and segid C)
+       )  2.0 2.0 0.0
+!
+assign ( resid 53 and segid B)
+       (
+        ( resid 37 and segid A)
+     or
+        ( resid 38 and segid A)
+     or
+        ( resid 39 and segid A)
+     or
+        ( resid 53 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 54 and segid B)
+       (
+        ( resid 53 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 55 and segid B)
+       (
+        ( resid 53 and segid A)
+       )  2.0 2.0 0.0
+!
+assign ( resid 69 and segid B)
+       (
+        ( resid 24 and segid C and (name C1' or name O4' or name C4' or name C3' or name C2' or name O3' or name C5' or name O5' or name P or name O1P or name O2P or name H5' or name H5'' or name H4' or name H3' or name H2' or name H2'' or name H1'))
+       )  2.0 2.0 0.0
+!
