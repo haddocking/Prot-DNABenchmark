@@ -28,6 +28,8 @@ The current version of the protein-DNA benchmark is 1.2
 
 * 22-09-2009 | Benchmark version 1.2: Small fixes in residue mapping for two entries. For two entries (1EYU,1RVA) the unbound protein was composed off two distinct subunits. These have now been separated into individual pdb files and all other files have been adjusted accordingly.
 
+* 7-04-2026 | Structure naming scheme adapted and AIRs added to the repository.
+
 * * *
 
 ### Citation
@@ -59,7 +61,7 @@ Each directory contains the following files:
 
 * _X_target.pdb_ :	PDB file of the bound complex reconstructed from the individual processed bound structures.
 
-* _X_b_ambig.tbl_ :	 Ambiguous interaction restraints for bound docking.
+* _X_b_ambig.tbl_ :	 Ambiguous interaction restraints for abound docking.
 
 * _X_u_ambig.tbl_ :	 Ambiguous interaction restraints for unbound docking.
 
