@@ -61,7 +61,7 @@ Each directory contains the following files:
 
 * _X_target.pdb_ :	PDB file of the bound complex reconstructed from the individual processed bound structures.
 
-* _X_b_ambig.tbl_ :	 Ambiguous interaction restraints for abound docking.
+* _X_b_ambig.tbl_ :	 Ambiguous interaction restraints for bound docking.
 
 * _X_u_ambig.tbl_ :	 Ambiguous interaction restraints for unbound docking.
 
