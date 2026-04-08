@@ -1,4 +1,4 @@
-complex unbound
+complex unbound-protein
 1A74 1EVX
 1AZP 1SAP
 1B3T 1VHI
