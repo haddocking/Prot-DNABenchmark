@@ -28,6 +28,8 @@ The current version of the protein-DNA benchmark is 1.2
 
 * 22-09-2009 | Benchmark version 1.2: Small fixes in residue mapping for two entries. For two entries (1EYU,1RVA) the unbound protein was composed off two distinct subunits. These have now been separated into individual pdb files and all other files have been adjusted accordingly.
 
+* 7-04-2026 | Structure naming scheme adapted and AIRs added to the repository.
+
 * * *
 
 ### Citation
@@ -48,17 +50,21 @@ The benchmark in organized in directory structure, containing one directory per 
 Each directory contains the following files:
 
 * _X.pdb_ and _Y.pdb_ :	The unmodified RCSB PDB files for the structure of the complex and the structure of the unbound protein
-								
-* _X_bound-prot(x).pdb_ : The processed PDB file of the bound protein (extracted from the complex) 
 
-* _X_bound-DNA.pdb_ : The processed PDB file of the bound DNA (extracted from the complex)
-								
-* _Y_unbound-prot(x).pdb_ : Structure files of the unbound protein, processed. In case of an NMR ensemble the file is separated into its individual models.
-								
-* _DNA_unbound.pdb_ : 3DNA generated unbound canonical BDNA representation.
+* _X_p(x)_b.pdb_ : The processed PDB file of the bound protein (extracted from the complex) 
 
-* _X_complex.pdb_ :	PDB file of the bound complex reconstructed from the individual processed bound structures.
-								
+* _X_d_b.pdb_ : The processed PDB file of the bound DNA (extracted from the complex)
+
+* _X_p(x)_u.pdb_ : Structure files of the unbound protein, processed. In case of an NMR ensemble the file is separated into its individual models.
+
+* _X_d_u.pdb_ : 3DNA generated unbound canonical BDNA representation.
+
+* _X_target.pdb_ :	PDB file of the bound complex reconstructed from the individual processed bound structures.
+
+* _X_b_ambig.tbl_ :	 Ambiguous interaction restraints for bound docking.
+
+* _X_u_ambig.tbl_ :	 Ambiguous interaction restraints for unbound docking.
+
 * _X_ubcomplex.pdb_ : Structure file of the complex reconstructed from the unbound processed components after superimposition using all CA and P atoms.
 								
 * _interface_fit.dat_ : Data file containing the residue zones for all unbound components that have CA atoms at the interface
