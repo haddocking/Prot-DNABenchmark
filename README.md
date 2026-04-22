@@ -1,4 +1,4 @@
-## Prot-DNA Docking Benchmark
+## Protein-DNA Docking Benchmark
 
 [![DOI](https://zenodo.org/badge/263383097.svg)](https://zenodo.org/badge/latestdoi/263383097)
 
@@ -16,7 +16,7 @@ We developed the protein-DNA benchmark to be of general use to the docking commu
 
 ### Current version
 
-The current version of the protein-DNA benchmark is 1.2
+The current version of the protein-DNA benchmark is 1.3
 
 * * *
 
@@ -28,7 +28,7 @@ The current version of the protein-DNA benchmark is 1.2
 
 * 22-09-2009 | Benchmark version 1.2: Small fixes in residue mapping for two entries. For two entries (1EYU,1RVA) the unbound protein was composed off two distinct subunits. These have now been separated into individual pdb files and all other files have been adjusted accordingly.
 
-* 07-04-2026 | Structure naming scheme adapted and AIRs added to the repository.
+* 07-04-2026 |  Benchmark version 1.3: Structure naming scheme adapted, AIRs added to the repository and 3-letter codes for nucleotides replaced by 2-letter codes.
 
 * * *
 
@@ -80,5 +80,5 @@ Each directory contains the following files:
 * _profit.dat_ : Text file containing ProFit structure fitting data for automatic structure fitting using ProFit
 
 
-**Note** that the processed PDB files have been modified to avoid any overlap in residue numbering (e.g. shifting the numnber of the second DNA strand). Also the DNA nomenclature follows a three letter code (ADE, CYT, GUA, THY) compatible with [HADDOCK2.2](https://www.bonvinlab.org/software/haddock2.2).  For use in [HADDOCK2.4](https://www.bonvinlab.org/software/haddock2.2), the base names must be reverted to a single letter code (A,C,G,T).
+**Note** that the processed PDB files have been modified to avoid any overlap in residue numbering (e.g. shifting the numnber of the second DNA strand). Also the DNA nomenclature follows a two letter code (DA, DC, DG, DT) compatible with [HADDOCK3](https://github.com/haddocking/haddock3) and [HADDOCK2.4 web server](https://wenmr.science.uu.nl/haddock2.4/).
 
