@@ -28,7 +28,7 @@ The current version of the protein-DNA benchmark is 1.2
 
 * 22-09-2009 | Benchmark version 1.2: Small fixes in residue mapping for two entries. For two entries (1EYU,1RVA) the unbound protein was composed off two distinct subunits. These have now been separated into individual pdb files and all other files have been adjusted accordingly.
 
-* 7-04-2026 | Structure naming scheme adapted and AIRs added to the repository.
+* 07-04-2026 | Structure naming scheme adapted and AIRs added to the repository.
 
 * * *
 
